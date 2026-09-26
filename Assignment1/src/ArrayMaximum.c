@@ -4,6 +4,7 @@
 #include <math.h>
 #include <string.h>
 #include "lowreytiming.h"
+#include "plot.h"
 
 //sizes for the arrays for each size. Number is the power that 10 is to
 #define SIZE6 1000000
@@ -20,8 +21,8 @@ void randomNumbersDouble(double doubleArray[], int size);
 void testTimeintA(int intArray[], int size, int intArraycpy[], size_t bitsize);
 void testTimeintB(int intArray[], int size, int intArraycpy[], size_t bitsize);
 void testTimedblA(double doubleArray[], int size, double doubleArraycpy[], size_t bitsize);
-void testTimedblB(double doubleArray[], int size, double doubleArraycpy[], size_t bitsize);
-void arrayDoubling();
+int testTimedblB(double doubleArray[], int size, double doubleArraycpy[], size_t bitsize);
+void arrayDoubling(struct Plot *plotHere);
 
 
 
@@ -69,6 +70,13 @@ int main() {
     memcpy(doubleArray6cpy, doubleArray6, doubln6);
     memcpy(doubleArray7cpy, doubleArray7, doubln7);
     memcpy(doubleArray8cpy, doubleArray8, doubln8);
+
+    //Creation of the plot that data will be put on
+    Plot *plotting = plotCreate("data/ArrayMaxPlot.svg", 
+                                "Array size alongside its bandwidth",
+                                "Size of Array (in bytes)", "Bandwidth", 
+                                1000, 1000000000, 600000000, 1);
+
     
 
     //NOW ONTO TESTING
@@ -123,8 +131,10 @@ int main() {
 
 //------------------------------------------------------------
     //testing of the doubling double arrays
-    arrayDoubling();
+    arrayDoubling(plotting);
 
+    //close the plot
+    plotFinish(plotting);
 
 
     
@@ -199,6 +209,7 @@ void testTimeintA(int intArray[], int size, int intArraycpy[], size_t bitsize) {
         double t = elapsed.tv_sec + (elapsed.tv_nsec * 1e-9);
         int bandwidth = (int) ((size * sizeof(int)) / t);
         printf("\nTest %d \nElapsed Seconds: %ld \nElapsed NanoSeconds: %ld \nBandwidth: %d\n", i + 1, elapsed.tv_sec, elapsed.tv_nsec, bandwidth);
+        
         //reset the array 
         memcpy(intArray, intArraycpy, bitsize);
 
@@ -232,7 +243,8 @@ void testTimedblA(double doubleArray[], int size, double doubleArraycpy[], size_
     }
 }
 
-void testTimedblB(double doubleArray[], int size, double doubleArraycpy[], size_t bitsize) {
+int testTimedblB(double doubleArray[], int size, double doubleArraycpy[], size_t bitsize) {
+    int avgBandwidth = 0;
     for(int i = 0; i < 5; i++) {
         start();
         maxDoubleB(doubleArray, size);
@@ -242,10 +254,17 @@ void testTimedblB(double doubleArray[], int size, double doubleArraycpy[], size_
         int bandwidth = (int) ((size * sizeof(double)) / t);
         printf("\nTest %d \nElapsed Seconds: %ld \nElapsed NanoSeconds: %ld \nBandwidth: %d\n", i + 1, elapsed.tv_sec, elapsed.tv_nsec, bandwidth);
         memcpy(doubleArray, doubleArraycpy, bitsize);
+        //averages are totaled
+        avgBandwidth += bandwidth;
+
+
     }
+    return avgBandwidth / 5;
+
+    
 }
 
-void arrayDoubling() {
+void arrayDoubling(struct Plot *plotHere) {
     for(int i = 0; i < 18; i++) {
         int bytesize = 2048 * pow(2, i);
         double *doublingArray = malloc(bytesize);
@@ -257,7 +276,10 @@ void arrayDoubling() {
         memcpy(doublingArraycpy, doublingArray, bytesize);
 
         printf("\nTesting of double array with byte size of %d and an array length of %d \n", bytesize, arrayLength);
-        testTimedblB(doublingArray, arrayLength, doublingArraycpy, bytesize);
+        int bandwidth = testTimedblB(doublingArray, arrayLength, doublingArraycpy, bytesize);
+        //char label[64];
+        //snprintf(label, sizeof(label), "%d", bytesize);
+        plotAddPoint(plotHere, bytesize, bandwidth, "");
         free(doublingArray);
         free(doublingArraycpy);
     }
