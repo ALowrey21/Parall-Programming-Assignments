@@ -64,4 +64,4 @@ for (size_t i = 0; i < count; i++)
 a[i] = (double)(1 + (int)(rng_next(&r) % 9));
 return a;
 }
-#endif /
+#endif
