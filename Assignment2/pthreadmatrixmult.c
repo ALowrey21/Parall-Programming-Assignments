@@ -13,7 +13,8 @@
 #define SIZE3 1000
 #define SIZE4 1536
 
-#define REPEATCOUNT 11
+//number of times that each test is run
+#define REPEATCOUNT 7
 
 typedef struct{ 
     int start;
@@ -55,10 +56,18 @@ double timeSequential(int m, int k, int n, double mA[], double mB[], double mC[]
 double time1D(int m, int k, int n, double mA[], double mB[], double mC[], int b, int p);
 double time2D(int m, int k, int n, double mA[], double mB[], double mC[], int b, int p, int pr);
 
+timeB testSeqen(int m, int k, int n, double mA[], double mB[], double mC[]);
+void test1D(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar);
+void test2D(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar);
+void testNonDivisible(int m, int k, int n, double mA[], double mB[], double mC[], int bStar);
+
+
 double findMedian(double times[]);
 void matrixCReset(int m, int n, double matrix[]);
 void *oneDWrapper(void *arg);
 void *twoDWrapper(void *arg);
+double *cCompareAgainst(int m, int k, int n, double mA[], double mB[]);
+void compareCees(int m, int n, double mC[], double testAgainst[]);
 
 
 int main(){
@@ -67,6 +76,7 @@ int main(){
     double *array1A = generate_matrix(SIZE1, SIZE1, 1);
     double *array1B = generate_matrix(SIZE1, SIZE1, 2);
     double *array1C = calloc(SIZE1 * SIZE1, sizeof(double));
+    double *compare1C = calloc(SIZE1 * SIZE1, sizeof(double));
 
 
 
@@ -74,26 +84,81 @@ int main(){
     double *array2A = generate_matrix(SIZE2, SIZE2, 1);
     double *array2B = generate_matrix(SIZE2, SIZE2, 2);
     double *array2C = calloc(SIZE2 * SIZE2, sizeof(double));
+    double *compare2C = calloc(SIZE2 * SIZE2, sizeof(double));
+
+    //special arrays
+    double *specialA = generate_matrix(SIZE3, SIZE1, 1);
+    double *specialB = generate_matrix(SIZE1, SIZE4, 2);
+    double *specialC = calloc(SIZE3 * SIZE4, sizeof(double));
+    double *CompareSC = calloc(SIZE3 * SIZE4, sizeof(double));
 
     //sequential median time;
+    printf("\nTesting Seqential of M=K=N=1024");
     double seqMed1024 = timeSequential(SIZE1, SIZE1, SIZE1, array1A, array1B, array1C, 0);
-    printf("\n-----------\nTseq of M=K=N=1024 with b = 0 on a sequential function is: %f\n", seqMed1024);
+    printf("\nTseq of M=K=N=1024 with b = 0 on a sequential function is: %f\n", seqMed1024);
+    printf("-------------------------------------------\n");
 
-    double seqMed2048 = timeSequential(SIZE2, SIZE2, SIZE2, array2A, array2B, array2C, 0);
-    printf("\n-----------\nTseq of M=N=K=2048 with b = 0 on a sequential function is: %f\n", seqMed2048);
 
+  
+
+    //testing sequential of M=K=N=2048
+    //returns b*
+    timeB medAndBStar = testSeqen(SIZE2, SIZE2, SIZE2, array2A, array2B, array2C);
+    //the b and timed values in this iteration of timeB do not match. timed is the median of b = 0,
+    //and b is the b value with the lowest median time, not necessarily b = 0.
+    //They were paired and returned together for ease of use
     
-    
-    
+    double seqMed2048 = medAndBStar.timed;
+    double bStar = medAndBStar.b;
+    printf("\nTseq of M=N=K=2048 with b = 0 on a sequential function is: %f\n", seqMed2048);
+    printf("-------------------------------------------\n");
+
+
+    //testing one-demensional of M=K=N=1024
+    printf("\nTesting One Dimentional of M=K=N=1024");
+    test1D(SIZE1, SIZE1, SIZE1, array1A, array1B, array1C, seqMed1024, bStar);
+    printf("-------------------------------------------\n");
+
+    //testing one-dimennsional of M=K=N=2048
+    printf("\nTesting One Dimentional of M=K=N=2048");
+    test1D(SIZE2, SIZE2, SIZE2, array2A, array2B, array2C, seqMed2048, bStar);
+    printf("-------------------------------------------\n");
+
+
+    //testing tw0-dimensional of M=K=N=1024
+    printf("\nTesting Two Dimentional of M=K=N=1024");
+    test2D(SIZE1, SIZE1, SIZE1, array1A, array1B, array1C, seqMed1024, bStar);
+    printf("-------------------------------------------\n");
+
+
+    //testing two-dimensional of M=K=N=2048
+    printf("\nTesting Two Dimentional of M=K=N=2048");
+    test2D(SIZE2, SIZE2, SIZE2, array2A, array2B, array2C, seqMed2048, bStar);
+    printf("-------------------------------------------\n");
+
+
+    //testing M = 1000, K = 1024, N = 1536
+    printf("\nTesting Two Dimentional of M= 1000, K = 1024, N = 1536");
+   
+
+
+
     
     //DON'T FORGET TO FREE THE ARRAYS: THEY WANT TO GO INTO THE GREAT BEYOND
     //Do it like this: free(array);
     free(array1A);
     free(array1B);
     free(array1C);
+    free(compare1C);
     free(array2A);
     free(array2B);
     free(array2C);
+    free(compare2C);
+    free(specialA);
+    free(specialB);
+    free(specialC);
+    free(CompareSC);
+    
     return 0;
 }
 
@@ -238,12 +303,10 @@ double timeSequential(int m, int k, int n, double mA[], double mB[], double mC[]
         sequenMM(m, k, n, mA, mB, mC, b);
         double untiledTimeEnd = now_seconds();
         double untiledTime = untiledTimeEnd - untiledTimeStart;
-        double rate = 2 * m * k * n / untiledTime;
-        printf("\nAttempt: %d of b: %d\n", i, b);
+        double rate = (double)2 * m * k * n / untiledTime;
+        printf("\nAttempt: %d of b: %d\n", i + 1, b);
         printf("Elapsed Time for Sequential: %f\n", untiledTime);
-        printf("Rate in FLOPS: %d", rate);
-        
-        
+        printf("Rate in FLOPS: %f\n", rate);
         times[i] = untiledTime;
         
         
@@ -285,7 +348,7 @@ double time1D(int m, int k, int n, double mA[], double mB[], double mC[], int b,
         }
         double timeEnd = now_seconds();
         double timing = timeEnd - timeStart;
-        printf("\nAttempt: %d with b: %d and p: %d\n", i, b, p);
+        printf("\nAttempt: %d with b: %d and p: %d\n", i + 1, b, p);
         printf("Elapsed Time for One-Dimension: %f\n", timing);
         times[i] = timing;
     }
@@ -342,7 +405,7 @@ double time2D(int m, int k, int n, double mA[], double mB[], double mC[], int b,
         }
         double timeEnd = now_seconds();
         double timing = timeEnd - timeStart;
-        printf("\nAttempt: %d with b: %d and p: %d\n", i, b, p);
+        printf("\nAttempt: %d with b: %d and p: %d\n", i + 1, b, p);
         printf("Dimensions of p are %d x %d\n", pr, pc);
         printf("Elapsed Time for Two-Dimension: %f\n", timing);
         times[i] = timing;
@@ -353,14 +416,24 @@ double time2D(int m, int k, int n, double mA[], double mB[], double mC[], int b,
 
 
 //Testing the Seqential and Finding b*
-int testSeqen(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq) {
-    int bees[6] = {0, 16, 32, 128, 64, 256};
+timeB testSeqen(int m, int k, int n, double mA[], double mB[], double mC[]) {
+    int bees[6] = {0, 16, 32, 64, 128, 256};
     timeB bTimes[6];
+    //the b and timed values in this iteration of timeB do not match. timed is the median of b = 0,
+    //and b is the b value with the lowest median time, not necessarily b = 0.
+    //They are paired and returned together for ease of use
+    timeB medAndBStar;
+    double *check = calloc(m * n, sizeof(double));
+    check = cCompareAgainst(m, k, n, mA, mB);
 
-    for(int i = 0; i < 6, i++) {
+    for(int i = 0; i < 6; i++) {
         bTimes[i].timed = timeSequential(m, k, n, mA, mB, mC, bees[i]);
         bTimes[i].b = bees[i];
+        if(i == 0){
+            medAndBStar.timed = bTimes[i].timed;
+        }
     }
+    compareCees(m, n, mC, check);
     double smallTime = INFINITY;
     int smallB = -1;
     for(int i = 0; i < 6; i++) {
@@ -370,9 +443,77 @@ int testSeqen(int m, int k, int n, double mA[], double mB[], double mC[], double
         }
     }
     printf("\nThe b with the smallest median time is %d with a time of %f\n", smallB, smallTime);
-    return smallB;
+    free(check);
+    medAndBStar.b = smallB;
+    return medAndBStar;
 }
 
+//Testing the One-Dimentioal partition
+void test1D(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar) {
+    int pees[7] = {1, 2, 4, 8, 12, 18, 36};
+    double *check = calloc(m * n, sizeof(double));
+    check = cCompareAgainst(m, k, n, mA, mB);
+    
+    //run them with b = 0 
+    //running once per p in pees array
+    for (int j = 0; j < 7; j++) {
+        double median = time1D(m, k, n, mA, mB, mC, 0, pees[j]);
+        printf("\nWith b =  0 and p = %d:", pees[j]);
+        double sp = tSeq / median;
+        double rate = (double)2 * m * k * n / median;
+        printf("\nT(%d) = %f \nS(%d) = %f rate = %f\n", pees[j], median, pees[j], sp, rate);
+    }
+    compareCees(m, n, mC, check);
+
+    //run with b = b* 
+    //running once per p in pees array
+    for (int j = 0; j < 7; j++) {
+        double median = time1D(m, k, n, mA, mB, mC, bStar, pees[j]);
+        printf("\nWith b =  %d and p = %d:", bStar, pees[j]);
+        double sp = tSeq / median;
+        double rate = (double)2 * m * k * n / median;
+        printf("\nT(%d) = %f \nS(%d) = %f rate = %f\n", pees[j], median, pees[j], sp, rate);
+    }
+
+
+    compareCees(m, n, mC, check);
+    free(check);
+
+}
+
+//Testing the Two-Dimensional partition
+void test2D(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar) {
+    //running with bStar
+    //inclusion of a second 36 and a 1 is for the 1 x 36 column grid run
+    int pees[7] = {2, 4, 8, 12, 18, 36, 36};
+    int peers[7] = {1, 2, 2, 3, 3, 6, 1};
+    double *check = calloc(m * n, sizeof(double));
+    check = cCompareAgainst(m, k, n, mA, mB);
+
+    for (int i = 0; i < 7; i++) {
+        double median = time2D(m, k, n, mA, mB, mC, bStar, pees[i], peers[i]);
+        double sp = tSeq / median;
+        double rate = (double)2 * m * k * n / median;
+        printf("\nWith b =  %d and p = %d:", bStar, pees[i]);
+        printf("\nT(%d) = %f \nS(%d) = %f rate = %f\n", pees[i], median, pees[i], sp, rate);
+    }
+
+
+    compareCees(m, n, mC, check);
+    free(check);
+    
+   
+}
+
+//Testing for Two-Dimentional with non-divisible dimensions
+void testNonDivisible(int m, int k, int n, double mA[], double mB[], double mC[], int bStar) {
+    double *check = calloc(m * n, sizeof(double));
+    check = cCompareAgainst(m, k, n, mA, mB);
+    time2D(m, k, n, mA, mB, mC, bStar, 36, 6);
+    compareCees(m, n, mC, check);
+    free(check);
+
+}
 
 
 double findMedian(double times[]) {
@@ -419,30 +560,33 @@ void *twoDWrapper(void *arg) {
     return NULL;
 }
 
-/* 
-In case I need it for later:
-original loop
-    for (int m_floor = 0; m_floor < m; m_floor += b) {
-        //pretty much if it is the last section, do only the remaining, don't try past the limits of the matrix
-        int m_end = (m_floor + b < m) ? m_floor + b : m;
-        
-        for (int k_floor = 0; k_floor < k; k_floor +=b) {
-            int k_end = (k_floor + b < k) ? k_floor + b: k;
-            
-            for (int n_floor = 0; n_floor < n; n_floor +=b) {
-                int n_end = (n_floor + b < n) ? n_floor + b: n;
+//Returns the Seqential C array of that size that is tested against for correctnesss
+double *cCompareAgainst(int m, int k, int n, double mA[], double mB[]) {
+    double *mC = calloc(m * n, sizeof(double));
+    sequenMM(m, k, n, mA, mB, mC, 0);
+    return mC;
+}
 
-                for (int i = m_floor; i < m_end; i++) {
-                    
-                    for (int l = k_floor; l < k_end; l++) {
-                        
-                        for (int j = n_floor; j < n_end; j++) {
-                            mC[i * n + j] += mA[i * k + l] * mB[l * n + j];    
-                        }
-                    }
-                }
+void compareCees(int m, int n, double mC[], double testAgainst[]) {
+    //most of this code is copied over from Assignment1
+    int equal = 1;
+    int value1;
+    int value2;
+
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            value1 = mC[i * n + j];
+            value2 = testAgainst[i * n +j];
+            if(value1 != value2){
+                equal = 0;
             }
         }
-
     }
-*/
+
+    if(equal == 1) {
+        printf("\nThe arrays made by this style are correct\n");
+    } else {
+        printf("\nThe arrays made by this style and correct;\n");
+    }
+
+}
