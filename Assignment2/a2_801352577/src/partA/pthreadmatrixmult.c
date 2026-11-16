@@ -8,13 +8,26 @@
 
 //define constant values
 #define SIZE1 1024
-#define SIZE2 2048
-//used for non-divisable dimensions 
+#define SIZE2 2048 
 #define SIZE3 1000
 #define SIZE4 1536
+#define MAKEG 1e9
+
 
 //number of times that each test is run
 #define REPEATCOUNT 7
+
+
+//declare files
+FILE *pthSequentialRaw = NULL;
+FILE *pthSequentialMedians = NULL;
+FILE *pthOneDRaw = NULL;
+FILE *pthOneDMedians = NULL;
+FILE *pthTwoDRaw = NULL;
+FILE *pthTwoDMedians = NULL;
+
+
+
 
 typedef struct{ 
     int start;
@@ -45,12 +58,17 @@ typedef struct{
     int b;
 } timeB;
 
+typedef struct{
+    double median;
+    double mean;
+    double max;
+    double min;
+} timeStats
+
 //declartion of functions
-
-
-void sequenMM(int m, int k, int n, double mA[], double mB[], double mC[], int b);
-void oneDMM(int start, int end, int k, int n, double mA[], double mB[], double mC[], int b);
-void twoDMM(int rowStart, int rowEnd, int colStart, int colEnd, int n, int k, double mA[], double mB[], double mC[], int b);
+void sequenMM(int m, int k, int n, double mA[], double mB[], double mC[], int b); //unchanged
+void oneDMM(int start, int end, int k, int n, double mA[], double mB[], double mC[], int b); //unchanged
+void twoDMM(int rowStart, int rowEnd, int colStart, int colEnd, int n, int k, double mA[], double mB[], double mC[], int b); //unchanged
 
 double timeSequential(int m, int k, int n, double mA[], double mB[], double mC[], int b);
 double time1D(int m, int k, int n, double mA[], double mB[], double mC[], int b, int p);
@@ -59,24 +77,79 @@ double time2D(int m, int k, int n, double mA[], double mB[], double mC[], int b,
 timeB testSeqen(int m, int k, int n, double mA[], double mB[], double mC[]);
 void test1D(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar);
 void test2D(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar);
-void testNonDivisible(int m, int k, int n, double mA[], double mB[], double mC[], int bStar);
+void testNonDivisible(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar);
 
 
-double findMedian(double times[]);
-void matrixCReset(int m, int n, double matrix[]);
-void *oneDWrapper(void *arg);
-void *twoDWrapper(void *arg);
-double *cCompareAgainst(int m, int k, int n, double mA[], double mB[]);
-void compareCees(int m, int n, double mC[], double testAgainst[]);
+//double findMedian(double times[]); removed and changed to findTimeStats
+timeStats findTimeStats(double times[]);
+void matrixCReset(int m, int n, double matrix[]); //unchanged
+void *oneDWrapper(void *arg); //unchanged
+void *twoDWrapper(void *arg); //unchanged
+double *cCompareAgainst(int m, int k, int n, double mA[], double mB[]); //unchanged
+void compareCees(int m, int n, double mC[], double testAgainst[]); //unchanged
 
 
-int main(){
+int main(int argc, char *argv[]){
+    //argc: number of arguments in argv
+    //argv: a string of the values included in runing in the terminal
+    //format: file type m k n b p
+    //vaild types
+
+    //creation of each of the CSV files
+    pthSequentialRaw = fopen("data/pth_sequential_raw.csv", "w");
+    if (pthSequentialRaw == NULL) {
+        fprintf(stderr, "Could not open data/pth_sequential_raw.csv\n");
+        return 1;
+    }
+
+    pthSequentialMedians = fopen("data/pth_sequential_medians.csv", "w");
+    if (pthSequentialMedians == NULL) {
+        fprintf(stderr, "Could not open data/pth_sequential_medians.csv\n");
+        return 1;
+    }
+
+    pthOneDRaw = fopen("data/pth_oned_raw.csv", "w");
+    if (pthOneDRaw == NULL) {
+        fprintf(stderr, "Could not open data/pth_oned_raw.csv\n");
+        return 1;
+    }
+
+    pthOneDMedians = fopen("data/pth_oned_medians.csv", "w");
+    if (pthOneDMedians == NULL) {
+        fprintf(stderr, "Could not open data/pth_oned_medians.csv\n");
+        return 1;
+    }
+
+    pthTwoDRaw = fopen("data/pth_twod_raw.csv", "w");
+    if (pthTwoDRaw == NULL) {
+        fprintf(stderr, "Could not open data/pth_twod_raw.csv\n");
+        return 1;
+    }
+
+    pthTwoDMedians = fopen("data/pth_twod_medians.csv", "w");
+    if (pthTwoDMedians == NULL) {
+        fprintf(stderr, "Could not open data/pth_twod_medians.csv\n");
+        return 1;
+    }
+
+    //headers
+    
+    fprintf(pthSequentialRaw, "Attempt,M,K,N,b,Time,GFLOPS\n");
+    fprintf(pthSequentialMedians, "M,K,N,b,Median,Mean,Minimum,Maximum,Median_GFLOPS\n");
+    fprintf(pthOneDRaw, "Attempt,M,K,N,b,p,Time,GFLOPS\n");
+    fprintf(pthOneDMedians, "M,K,N,b,p,Median,Mean,Minimum,Maximum,Speed_Up,Median_GFLOPS\n");
+    fprintf(pthTwoDRaw, "Attempt,M,K,N,b,p,pr,pc,Time,GFLOPS\n");
+    fprintf(pthTwoDMedians, "M,K,N,b,p,pr,pc,Median,Mean,Minimum,Maximum,Speed_Up,Median_GFLOPS\n");
+
+    
+    
+
+       
     //reference: generate_matrix(int rows, int cols, uint64_t seed)
     //arrays of size 1024 
     double *array1A = generate_matrix(SIZE1, SIZE1, 1);
     double *array1B = generate_matrix(SIZE1, SIZE1, 2);
     double *array1C = calloc(SIZE1 * SIZE1, sizeof(double));
-    double *compare1C = calloc(SIZE1 * SIZE1, sizeof(double));
 
 
 
@@ -84,17 +157,17 @@ int main(){
     double *array2A = generate_matrix(SIZE2, SIZE2, 1);
     double *array2B = generate_matrix(SIZE2, SIZE2, 2);
     double *array2C = calloc(SIZE2 * SIZE2, sizeof(double));
-    double *compare2C = calloc(SIZE2 * SIZE2, sizeof(double));
 
     //special arrays
     double *specialA = generate_matrix(SIZE3, SIZE1, 1);
     double *specialB = generate_matrix(SIZE1, SIZE4, 2);
     double *specialC = calloc(SIZE3 * SIZE4, sizeof(double));
-    double *CompareSC = calloc(SIZE3 * SIZE4, sizeof(double));
 
     //sequential median time;
     printf("\nTesting Seqential of M=K=N=1024");
     double seqMed1024 = timeSequential(SIZE1, SIZE1, SIZE1, array1A, array1B, array1C, 0);
+    double rate = (double)2 * SIZE1 * SIZE1 * SIZE1 / seqMed1024;
+    fprintf(pthSequentialMedians, "%d,%d,%d,%d,%f,%f\n", SIZE1, SIZE1, SIZE1, 0, seqMed1024, rate / MAKEG);
     printf("\nTseq of M=K=N=1024 with b = 0 on a sequential function is: %f\n", seqMed1024);
     printf("-------------------------------------------\n");
 
@@ -103,24 +176,25 @@ int main(){
 
     //testing sequential of M=K=N=2048
     //returns b*
+    printf("\nTesting Seqential of M=K=N=2048");
     timeB medAndBStar = testSeqen(SIZE2, SIZE2, SIZE2, array2A, array2B, array2C);
     //the b and timed values in this iteration of timeB do not match. timed is the median of b = 0,
     //and b is the b value with the lowest median time, not necessarily b = 0.
     //They were paired and returned together for ease of use
     
     double seqMed2048 = medAndBStar.timed;
-    double bStar = medAndBStar.b;
+    int bStar = medAndBStar.b;
     printf("\nTseq of M=N=K=2048 with b = 0 on a sequential function is: %f\n", seqMed2048);
     printf("-------------------------------------------\n");
 
 
     //testing one-demensional of M=K=N=1024
-    printf("\nTesting One Dimentional of M=K=N=1024");
+    printf("\nTesting One Dimensional of M=K=N=1024");
     test1D(SIZE1, SIZE1, SIZE1, array1A, array1B, array1C, seqMed1024, bStar);
     printf("-------------------------------------------\n");
 
     //testing one-dimennsional of M=K=N=2048
-    printf("\nTesting One Dimentional of M=K=N=2048");
+    printf("\nTesting One Dimensional of M=K=N=2048");
     test1D(SIZE2, SIZE2, SIZE2, array2A, array2B, array2C, seqMed2048, bStar);
     printf("-------------------------------------------\n");
 
@@ -139,8 +213,8 @@ int main(){
 
     //testing M = 1000, K = 1024, N = 1536
     printf("\nTesting Two Dimentional of M= 1000, K = 1024, N = 1536");
-   
-
+    testNonDivisible(SIZE3, SIZE1, SIZE4, specialA, specialB, specialC, 0, bStar);  
+    printf("-------------------------------------------\n");
 
 
     
@@ -149,15 +223,20 @@ int main(){
     free(array1A);
     free(array1B);
     free(array1C);
-    free(compare1C);
     free(array2A);
     free(array2B);
     free(array2C);
-    free(compare2C);
     free(specialA);
     free(specialB);
     free(specialC);
-    free(CompareSC);
+
+    //Now close all of the files
+    fclose(pthSequentialRaw);
+    fclose(pthSequentialMedians);
+    fclose(pthOneDRaw);
+    fclose(pthOneDMedians);
+    fclose(pthTwoDRaw);
+    fclose(pthTwoDMedians);
     
     return 0;
 }
@@ -308,6 +387,7 @@ double timeSequential(int m, int k, int n, double mA[], double mB[], double mC[]
         printf("Elapsed Time for Sequential: %f\n", untiledTime);
         printf("Rate in FLOPS: %f\n", rate);
         times[i] = untiledTime;
+        fprintf(pthSequentialRaw, "%d,%d,%d,%d,%d,%f,%f\n", i + 1, m, k, n, b, untiledTime, rate / MAKEG);
         
         
     }
@@ -348,9 +428,12 @@ double time1D(int m, int k, int n, double mA[], double mB[], double mC[], int b,
         }
         double timeEnd = now_seconds();
         double timing = timeEnd - timeStart;
+        double rate = (double) 2 * m * k * n / timing;
         printf("\nAttempt: %d with b: %d and p: %d\n", i + 1, b, p);
         printf("Elapsed Time for One-Dimension: %f\n", timing);
+        printf("Rate in FLOPS: %f\n", rate);
         times[i] = timing;
+        fprintf(pthOneDRaw, "%d,%d,%d,%d,%d,%d,%f,%f\n", i + 1, m, k, n, b, p, timing, rate / MAKEG);
     }
     return findMedian(times);
 }
@@ -405,10 +488,13 @@ double time2D(int m, int k, int n, double mA[], double mB[], double mC[], int b,
         }
         double timeEnd = now_seconds();
         double timing = timeEnd - timeStart;
+                double rate = (double) 2 * m * k * n / timing;
         printf("\nAttempt: %d with b: %d and p: %d\n", i + 1, b, p);
         printf("Dimensions of p are %d x %d\n", pr, pc);
         printf("Elapsed Time for Two-Dimension: %f\n", timing);
+        printf("Rate in FLOPS: %f\n", rate);
         times[i] = timing;
+        fprintf(pthTwoDRaw, "%d,%d,%d,%d,%d,%d,%d,%d,%f,%f\n", i + 1, m, k, n, b, p, pr, pc, timing, rate / MAKEG);
     }
 
     return findMedian(times);
@@ -423,8 +509,8 @@ timeB testSeqen(int m, int k, int n, double mA[], double mB[], double mC[]) {
     //and b is the b value with the lowest median time, not necessarily b = 0.
     //They are paired and returned together for ease of use
     timeB medAndBStar;
-    double *check = calloc(m * n, sizeof(double));
-    check = cCompareAgainst(m, k, n, mA, mB);
+
+    double *check = cCompareAgainst(m, k, n, mA, mB);
 
     for(int i = 0; i < 6; i++) {
         bTimes[i].timed = timeSequential(m, k, n, mA, mB, mC, bees[i]);
@@ -432,8 +518,11 @@ timeB testSeqen(int m, int k, int n, double mA[], double mB[], double mC[]) {
         if(i == 0){
             medAndBStar.timed = bTimes[i].timed;
         }
+        double rate = (double)2 * m * k * n / bTimes[i].timed;
+        fprintf(pthSequentialMedians, "%d,%d,%d,%d,%f,%f\n", m, k, n, bees[i], bTimes[i].timed, rate / MAKEG);
+        compareCees(m, n, mC, check);
     }
-    compareCees(m, n, mC, check);
+    
     double smallTime = INFINITY;
     int smallB = -1;
     for(int i = 0; i < 6; i++) {
@@ -451,8 +540,8 @@ timeB testSeqen(int m, int k, int n, double mA[], double mB[], double mC[]) {
 //Testing the One-Dimentioal partition
 void test1D(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar) {
     int pees[7] = {1, 2, 4, 8, 12, 18, 36};
-    double *check = calloc(m * n, sizeof(double));
-    check = cCompareAgainst(m, k, n, mA, mB);
+
+    double *check = cCompareAgainst(m, k, n, mA, mB);
     
     //run them with b = 0 
     //running once per p in pees array
@@ -462,8 +551,10 @@ void test1D(int m, int k, int n, double mA[], double mB[], double mC[], double t
         double sp = tSeq / median;
         double rate = (double)2 * m * k * n / median;
         printf("\nT(%d) = %f \nS(%d) = %f rate = %f\n", pees[j], median, pees[j], sp, rate);
+        fprintf(pthOneDMedians, "%d,%d,%d,%d,%d,%f,%f,%f\n", m, k, n, 0, pees[j], median, sp, rate / MAKEG);
+        compareCees(m, n, mC, check);
     }
-    compareCees(m, n, mC, check);
+
 
     //run with b = b* 
     //running once per p in pees array
@@ -473,10 +564,11 @@ void test1D(int m, int k, int n, double mA[], double mB[], double mC[], double t
         double sp = tSeq / median;
         double rate = (double)2 * m * k * n / median;
         printf("\nT(%d) = %f \nS(%d) = %f rate = %f\n", pees[j], median, pees[j], sp, rate);
+        fprintf(pthOneDMedians, "%d,%d,%d,%d,%d,%f,%f,%f\n", m, k, n, bStar, pees[j], median, sp, rate / MAKEG);
+        compareCees(m, n, mC, check);
     }
 
 
-    compareCees(m, n, mC, check);
     free(check);
 
 }
@@ -487,8 +579,8 @@ void test2D(int m, int k, int n, double mA[], double mB[], double mC[], double t
     //inclusion of a second 36 and a 1 is for the 1 x 36 column grid run
     int pees[7] = {2, 4, 8, 12, 18, 36, 36};
     int peers[7] = {1, 2, 2, 3, 3, 6, 1};
-    double *check = calloc(m * n, sizeof(double));
-    check = cCompareAgainst(m, k, n, mA, mB);
+
+    double *check = cCompareAgainst(m, k, n, mA, mB);
 
     for (int i = 0; i < 7; i++) {
         double median = time2D(m, k, n, mA, mB, mC, bStar, pees[i], peers[i]);
@@ -496,29 +588,34 @@ void test2D(int m, int k, int n, double mA[], double mB[], double mC[], double t
         double rate = (double)2 * m * k * n / median;
         printf("\nWith b =  %d and p = %d:", bStar, pees[i]);
         printf("\nT(%d) = %f \nS(%d) = %f rate = %f\n", pees[i], median, pees[i], sp, rate);
+        int pc = pees[i] / peers[i];
+        fprintf(pthTwoDMedians, "%d,%d,%d,%d,%d,%d,%d,%f,%f,%f\n", m, k, n, bStar, pees[i], peers[i], pc, median, sp, rate / MAKEG);
+        compareCees(m, n, mC, check);
     }
 
 
-    compareCees(m, n, mC, check);
+
     free(check);
     
    
 }
 
 //Testing for Two-Dimentional with non-divisible dimensions
-void testNonDivisible(int m, int k, int n, double mA[], double mB[], double mC[], int bStar) {
-    double *check = calloc(m * n, sizeof(double));
-    check = cCompareAgainst(m, k, n, mA, mB);
-    time2D(m, k, n, mA, mB, mC, bStar, 36, 6);
+void testNonDivisible(int m, int k, int n, double mA[], double mB[], double mC[], double tSeq, int bStar) {
+
+    double *check = cCompareAgainst(m, k, n, mA, mB);
+    double median = time2D(m, k, n, mA, mB, mC, bStar, 36, 6);
+    double sp = tSeq / median;
+    double rate = (double)2 * m * k * n / median;
+    fprintf(pthTwoDMedians, "%d,%d,%d,%d,%d,%d,%d,%f,%f,%f\n", m, k, n, bStar, 36, 6, 6, median, sp, rate / MAKEG);
     compareCees(m, n, mC, check);
     free(check);
 
 }
 
-
-double findMedian(double times[]) {
-    //sort for median time
-
+timeStats findTimeStats(double times[]) {
+    timeStats stats;
+    //Sort the times from least to greatest
     for(int i = 0; i < REPEATCOUNT; i++) {
         double current = times[i];
         int j = i - 1;
@@ -529,13 +626,17 @@ double findMedian(double times[]) {
         }
         times[j + 1] = current;
     }
-
-    //median time of the runs
-    double median = times[REPEATCOUNT / 2];
-    return median;
+    stats.median = times[REPEATCOUNT / 2];
+    stats.max = times[REPEATCOUNT - 1];
+    stats.min = times[0];
+    double sum = 0;
+    for(int i = 0; i < REPEATCOUNT; i++) {
+        sum += times[i];
+    }
+    stats.mean = sum / REPEATCOUNT;
+    return stats;
+ 
 }
-
-
 
 //CReset Function copied from assignment1
 void matrixCReset(int m, int n, double matrix[]) {
@@ -570,14 +671,16 @@ double *cCompareAgainst(int m, int k, int n, double mA[], double mB[]) {
 void compareCees(int m, int n, double mC[], double testAgainst[]) {
     //most of this code is copied over from Assignment1
     int equal = 1;
-    int value1;
-    int value2;
+    double value1;
+    double value2;
 
     for(int i = 0; i < m; i++) {
         for(int j = 0; j < n; j++) {
             value1 = mC[i * n + j];
             value2 = testAgainst[i * n +j];
-            if(value1 != value2){
+            double difference = fabs(value1 - value2);
+            double scale = fmax(fabs(value1), fabs(value2));
+            if(difference > scale * 1e-9){
                 equal = 0;
             }
         }
@@ -586,7 +689,31 @@ void compareCees(int m, int n, double mC[], double testAgainst[]) {
     if(equal == 1) {
         printf("\nThe arrays made by this style are correct\n");
     } else {
-        printf("\nThe arrays made by this style and correct;\n");
+        printf("\nThe arrays made by this style are NOT correct;\n");
     }
 
 }
+
+/* Code I removed as I realized my project was done incorrectly. Kept incase I can/do bring them back
+
+double findMedian(double times[]) {
+    //sort for median time
+
+    for(int i = 0; i < REPEATCOUNT; i++) {
+        double current = times[i];
+        int j = i - 1;
+
+        while(j >= 0 && times[j] > current) {
+            times[j+1] = times[j];
+            j--;
+        }
+        times[j + 1] = current;
+    }
+
+    //median time of the runs
+    double median = times[REPEATCOUNT / 2];
+    return median;
+}
+
+
+*/
