@@ -1,0 +1,1506 @@
+gal-c5.charlotte.edu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  36
+On-line CPU(s) list:                     0-35
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) Gold 6154 CPU @ 3.00GHz
+CPU family:                              6
+Model:                                   85
+Thread(s) per core:                      1
+Core(s) per socket:                      18
+Socket(s):                               2
+Stepping:                                4
+CPU(s) scaling MHz:                      78%
+CPU max MHz:                             3700.0000
+CPU min MHz:                             1200.0000
+BogoMIPS:                                6000.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 pti intel_ppin ssbd mba ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke md_clear flush_l1d arch_capabilities
+L1d cache:                               1.1 MiB (36 instances)
+L1i cache:                               1.1 MiB (36 instances)
+L2 cache:                                36 MiB (36 instances)
+L3 cache:                                49.5 MiB (2 instances)
+NUMA node(s):                            2
+NUMA node0 CPU(s):                       0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34
+NUMA node1 CPU(s):                       1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35
+Vulnerability Gather data sampling:      Mitigation; Microcode
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:                      Mitigation; PTE Inversion
+Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT disabled
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT disabled
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Mitigation; IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT disabled
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+rm -f partA partB
+gcc -O2 -pthread src/partA/pthreadmatrixmult.c -o partA -lm
+gcc -O2 -fopenmp src/partB/ompmatrixmult.c -o partB -lm
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 0
+Time: 0.595275
+
+Sequential Attempt 2 with b = 0
+Time: 0.595238
+
+Sequential Attempt 3 with b = 0
+Time: 0.594999
+
+Sequential Attempt 4 with b = 0
+Time: 0.595326
+
+Sequential Attempt 5 with b = 0
+Time: 0.595273
+
+Sequential Attempt 6 with b = 0
+Time: 0.595016
+
+Sequential Attempt 7 with b = 0
+Time: 0.595094
+
+Sequential Attempt 8 with b = 0
+Time: 0.595109
+
+Sequential Attempt 9 with b = 0
+Time: 0.595229
+
+Sequential Attempt 10 with b = 0
+Time: 0.595253
+
+Sequential Attempt 11 with b = 0
+Time: 0.595123
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 0
+Time: 6.792381
+
+Sequential Attempt 2 with b = 0
+Time: 6.805956
+
+Sequential Attempt 3 with b = 0
+Time: 6.798612
+
+Sequential Attempt 4 with b = 0
+Time: 6.791671
+
+Sequential Attempt 5 with b = 0
+Time: 6.794455
+
+Sequential Attempt 6 with b = 0
+Time: 6.796267
+
+Sequential Attempt 7 with b = 0
+Time: 6.771002
+
+Sequential Attempt 8 with b = 0
+Time: 6.801935
+
+Sequential Attempt 9 with b = 0
+Time: 6.796570
+
+Sequential Attempt 10 with b = 0
+Time: 6.748836
+
+Sequential Attempt 11 with b = 0
+Time: 6.732637
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 16
+Time: 5.700074
+
+Sequential Attempt 2 with b = 16
+Time: 5.699649
+
+Sequential Attempt 3 with b = 16
+Time: 5.699679
+
+Sequential Attempt 4 with b = 16
+Time: 5.699651
+
+Sequential Attempt 5 with b = 16
+Time: 5.817103
+
+Sequential Attempt 6 with b = 16
+Time: 5.711396
+
+Sequential Attempt 7 with b = 16
+Time: 5.699530
+
+Sequential Attempt 8 with b = 16
+Time: 5.699770
+
+Sequential Attempt 9 with b = 16
+Time: 5.778407
+
+Sequential Attempt 10 with b = 16
+Time: 5.699417
+
+Sequential Attempt 11 with b = 16
+Time: 5.699444
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 32
+Time: 5.191519
+
+Sequential Attempt 2 with b = 32
+Time: 5.167493
+
+Sequential Attempt 3 with b = 32
+Time: 5.167216
+
+Sequential Attempt 4 with b = 32
+Time: 5.167346
+
+Sequential Attempt 5 with b = 32
+Time: 5.167324
+
+Sequential Attempt 6 with b = 32
+Time: 5.168484
+
+Sequential Attempt 7 with b = 32
+Time: 5.165813
+
+Sequential Attempt 8 with b = 32
+Time: 5.166590
+
+Sequential Attempt 9 with b = 32
+Time: 5.166593
+
+Sequential Attempt 10 with b = 32
+Time: 5.166825
+
+Sequential Attempt 11 with b = 32
+Time: 5.166922
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 64
+Time: 5.142827
+
+Sequential Attempt 2 with b = 64
+Time: 5.142394
+
+Sequential Attempt 3 with b = 64
+Time: 5.142742
+
+Sequential Attempt 4 with b = 64
+Time: 5.141633
+
+Sequential Attempt 5 with b = 64
+Time: 5.143181
+
+Sequential Attempt 6 with b = 64
+Time: 5.142446
+
+Sequential Attempt 7 with b = 64
+Time: 5.147746
+
+Sequential Attempt 8 with b = 64
+Time: 5.142380
+
+Sequential Attempt 9 with b = 64
+Time: 5.175437
+
+Sequential Attempt 10 with b = 64
+Time: 5.151299
+
+Sequential Attempt 11 with b = 64
+Time: 5.141866
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 128
+Time: 6.934275
+
+Sequential Attempt 2 with b = 128
+Time: 6.950395
+
+Sequential Attempt 3 with b = 128
+Time: 6.927438
+
+Sequential Attempt 4 with b = 128
+Time: 6.926601
+
+Sequential Attempt 5 with b = 128
+Time: 6.911189
+
+Sequential Attempt 6 with b = 128
+Time: 6.908807
+
+Sequential Attempt 7 with b = 128
+Time: 6.926426
+
+Sequential Attempt 8 with b = 128
+Time: 6.932991
+
+Sequential Attempt 9 with b = 128
+Time: 6.919291
+
+Sequential Attempt 10 with b = 128
+Time: 6.914105
+
+Sequential Attempt 11 with b = 128
+Time: 6.931411
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 256
+Time: 5.781742
+
+Sequential Attempt 2 with b = 256
+Time: 5.834917
+
+Sequential Attempt 3 with b = 256
+Time: 5.747183
+
+Sequential Attempt 4 with b = 256
+Time: 5.786259
+
+Sequential Attempt 5 with b = 256
+Time: 5.848654
+
+Sequential Attempt 6 with b = 256
+Time: 5.794998
+
+Sequential Attempt 7 with b = 256
+Time: 5.840840
+
+Sequential Attempt 8 with b = 256
+Time: 5.804003
+
+Sequential Attempt 9 with b = 256
+Time: 5.807238
+
+Sequential Attempt 10 with b = 256
+Time: 5.725356
+
+Sequential Attempt 11 with b = 256
+Time: 5.785323
+
+The arrays made by this style are correct
+
+The b with the smallest median time is 64 with a time of 5.142742
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.317546
+
+Two-Dimension Attempt: 2 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318608
+
+Two-Dimension Attempt: 3 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318444
+
+Two-Dimension Attempt: 4 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.317045
+
+Two-Dimension Attempt: 5 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318371
+
+Two-Dimension Attempt: 6 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318142
+
+Two-Dimension Attempt: 7 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318434
+
+Two-Dimension Attempt: 8 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318612
+
+Two-Dimension Attempt: 9 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318224
+
+Two-Dimension Attempt: 10 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318366
+
+Two-Dimension Attempt: 11 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318616
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160889
+
+Two-Dimension Attempt: 2 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160642
+
+Two-Dimension Attempt: 3 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160226
+
+Two-Dimension Attempt: 4 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160162
+
+Two-Dimension Attempt: 5 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160369
+
+Two-Dimension Attempt: 6 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160306
+
+Two-Dimension Attempt: 7 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160130
+
+Two-Dimension Attempt: 8 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160384
+
+Two-Dimension Attempt: 9 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160535
+
+Two-Dimension Attempt: 10 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160609
+
+Two-Dimension Attempt: 11 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.160555
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082637
+
+Two-Dimension Attempt: 2 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082107
+
+Two-Dimension Attempt: 3 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082530
+
+Two-Dimension Attempt: 4 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082561
+
+Two-Dimension Attempt: 5 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082660
+
+Two-Dimension Attempt: 6 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082313
+
+Two-Dimension Attempt: 7 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082585
+
+Two-Dimension Attempt: 8 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082085
+
+Two-Dimension Attempt: 9 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082222
+
+Two-Dimension Attempt: 10 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082496
+
+Two-Dimension Attempt: 11 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082434
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054900
+
+Two-Dimension Attempt: 2 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054800
+
+Two-Dimension Attempt: 3 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055034
+
+Two-Dimension Attempt: 4 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054736
+
+Two-Dimension Attempt: 5 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055197
+
+Two-Dimension Attempt: 6 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054721
+
+Two-Dimension Attempt: 7 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055272
+
+Two-Dimension Attempt: 8 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055209
+
+Two-Dimension Attempt: 9 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054999
+
+Two-Dimension Attempt: 10 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055307
+
+Two-Dimension Attempt: 11 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055105
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041503
+
+Two-Dimension Attempt: 2 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041202
+
+Two-Dimension Attempt: 3 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041004
+
+Two-Dimension Attempt: 4 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041029
+
+Two-Dimension Attempt: 5 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041361
+
+Two-Dimension Attempt: 6 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040962
+
+Two-Dimension Attempt: 7 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.042014
+
+Two-Dimension Attempt: 8 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041615
+
+Two-Dimension Attempt: 9 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041727
+
+Two-Dimension Attempt: 10 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041090
+
+Two-Dimension Attempt: 11 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040729
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022423
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022383
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.021930
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022590
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022548
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022315
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022435
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022796
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022162
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022360
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022312
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.555911
+
+Two-Dimension Attempt: 2 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.561106
+
+Two-Dimension Attempt: 3 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.558571
+
+Two-Dimension Attempt: 4 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.558904
+
+Two-Dimension Attempt: 5 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.558255
+
+Two-Dimension Attempt: 6 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.561032
+
+Two-Dimension Attempt: 7 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.556574
+
+Two-Dimension Attempt: 8 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.561889
+
+Two-Dimension Attempt: 9 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.556624
+
+Two-Dimension Attempt: 10 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559764
+
+Two-Dimension Attempt: 11 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.555649
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.280198
+
+Two-Dimension Attempt: 2 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279988
+
+Two-Dimension Attempt: 3 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279477
+
+Two-Dimension Attempt: 4 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.280008
+
+Two-Dimension Attempt: 5 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279353
+
+Two-Dimension Attempt: 6 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.280038
+
+Two-Dimension Attempt: 7 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279186
+
+Two-Dimension Attempt: 8 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279575
+
+Two-Dimension Attempt: 9 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279364
+
+Two-Dimension Attempt: 10 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.280607
+
+Two-Dimension Attempt: 11 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279204
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.652492
+
+Two-Dimension Attempt: 2 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.650580
+
+Two-Dimension Attempt: 3 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.652543
+
+Two-Dimension Attempt: 4 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.649886
+
+Two-Dimension Attempt: 5 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.652228
+
+Two-Dimension Attempt: 6 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.651282
+
+Two-Dimension Attempt: 7 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.653067
+
+Two-Dimension Attempt: 8 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.650800
+
+Two-Dimension Attempt: 9 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.652649
+
+Two-Dimension Attempt: 10 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.650958
+
+Two-Dimension Attempt: 11 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.652507
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438900
+
+Two-Dimension Attempt: 2 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438876
+
+Two-Dimension Attempt: 3 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438840
+
+Two-Dimension Attempt: 4 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438800
+
+Two-Dimension Attempt: 5 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438754
+
+Two-Dimension Attempt: 6 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438684
+
+Two-Dimension Attempt: 7 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438713
+
+Two-Dimension Attempt: 8 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438941
+
+Two-Dimension Attempt: 9 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.439174
+
+Two-Dimension Attempt: 10 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.438845
+
+Two-Dimension Attempt: 11 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.439065
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.310251
+
+Two-Dimension Attempt: 2 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.301349
+
+Two-Dimension Attempt: 3 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.311448
+
+Two-Dimension Attempt: 4 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.306839
+
+Two-Dimension Attempt: 5 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.306342
+
+Two-Dimension Attempt: 6 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.306790
+
+Two-Dimension Attempt: 7 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.306657
+
+Two-Dimension Attempt: 8 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.307880
+
+Two-Dimension Attempt: 9 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.306640
+
+Two-Dimension Attempt: 10 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.306784
+
+Two-Dimension Attempt: 11 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.306562
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.179066
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.180954
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.181555
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.175333
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.187964
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.168026
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.202100
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.198163
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.200626
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.185803
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.177589
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.319588
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.330077
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.309176
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.286506
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.303759
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.345420
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.328840
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.287969
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.343181
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.287707
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.274881
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027757
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027697
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027708
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.028002
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027898
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027758
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027901
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027920
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027761
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027891
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027849
+
+The arrays made by this style are correct
+OMP_PROC_BIND=true OMP_PLACES=cores
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 1, pc = 2
+Time: 0.318710
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 1, pc = 2
+Time: 0.318244
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 1, pc = 2
+Time: 0.320146
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 1, pc = 2
+Time: 0.318338
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 1, pc = 2
+Time: 0.318591
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 1, pc = 2
+Time: 0.318324
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 1, pc = 2
+Time: 0.318342
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 1, pc = 2
+Time: 0.318247
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 1, pc = 2
+Time: 0.319625
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 1, pc = 2
+Time: 0.318470
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 1, pc = 2
+Time: 0.318231
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 2
+Time: 0.158974
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 2
+Time: 0.159005
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 2
+Time: 0.159118
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 2
+Time: 0.159210
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 2
+Time: 0.159122
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 2
+Time: 0.161493
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 2
+Time: 0.158772
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 2
+Time: 0.159026
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 2
+Time: 0.159323
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 2
+Time: 0.159267
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 2
+Time: 0.158748
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 4
+Time: 0.082204
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 4
+Time: 0.082169
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 4
+Time: 0.082067
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 4
+Time: 0.082092
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 4
+Time: 0.082065
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 4
+Time: 0.082064
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 4
+Time: 0.082081
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 4
+Time: 0.082071
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 4
+Time: 0.082075
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 4
+Time: 0.082075
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 4
+Time: 0.082080
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 4
+Time: 0.054768
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 4
+Time: 0.054712
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 4
+Time: 0.054694
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 4
+Time: 0.054726
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 4
+Time: 0.054721
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 4
+Time: 0.054730
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 4
+Time: 0.054701
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 4
+Time: 0.054700
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 4
+Time: 0.054707
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 4
+Time: 0.054700
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 4
+Time: 0.054695
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 6
+Time: 0.040578
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 6
+Time: 0.040393
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 6
+Time: 0.041123
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 6
+Time: 0.040828
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 6
+Time: 0.040191
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 6
+Time: 0.040654
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 6
+Time: 0.040421
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 6
+Time: 0.040467
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 6
+Time: 0.039895
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 6
+Time: 0.040517
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 6
+Time: 0.040862
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 6, pc = 6
+Time: 0.020395
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 6, pc = 6
+Time: 0.020981
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 6, pc = 6
+Time: 0.020672
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 6, pc = 6
+Time: 0.020288
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 6, pc = 6
+Time: 0.021109
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 6, pc = 6
+Time: 0.021324
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 6, pc = 6
+Time: 0.020939
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 6, pc = 6
+Time: 0.020343
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 6, pc = 6
+Time: 0.021192
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 6, pc = 6
+Time: 0.020751
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 6, pc = 6
+Time: 0.020949
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 1, pc = 2
+Time: 2.605434
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 1, pc = 2
+Time: 2.608002
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 1, pc = 2
+Time: 2.603884
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 1, pc = 2
+Time: 2.603692
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 1, pc = 2
+Time: 2.602519
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 1, pc = 2
+Time: 2.602299
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 1, pc = 2
+Time: 2.603326
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 1, pc = 2
+Time: 2.600428
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 1, pc = 2
+Time: 2.603571
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 1, pc = 2
+Time: 2.601305
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 1, pc = 2
+Time: 2.598568
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 2
+Time: 1.293405
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 2
+Time: 1.294808
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 2
+Time: 1.292975
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 2
+Time: 1.293724
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 2
+Time: 1.292274
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 2
+Time: 1.293811
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 2
+Time: 1.292195
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 2
+Time: 1.292032
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 2
+Time: 1.292358
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 2
+Time: 1.291375
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 2
+Time: 1.292474
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 4
+Time: 0.653516
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 4
+Time: 0.651663
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 4
+Time: 0.651576
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 4
+Time: 0.651525
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 4
+Time: 0.651253
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 4
+Time: 0.651547
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 4
+Time: 0.651651
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 4
+Time: 0.650971
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 4
+Time: 0.650778
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 4
+Time: 0.652873
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 4
+Time: 0.651486
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 4
+Time: 0.434392
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 4
+Time: 0.435696
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 4
+Time: 0.434543
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 4
+Time: 0.433640
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 4
+Time: 0.434213
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 4
+Time: 0.434576
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 4
+Time: 0.433022
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 4
+Time: 0.432730
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 4
+Time: 0.432780
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 4
+Time: 0.433149
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 4
+Time: 0.432687
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 6
+Time: 0.313023
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 6
+Time: 0.316239
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 6
+Time: 0.311531
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 6
+Time: 0.310507
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 6
+Time: 0.310615
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 6
+Time: 0.314410
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 6
+Time: 0.306072
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 6
+Time: 0.309970
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 6
+Time: 0.307667
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 6
+Time: 0.310449
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 6
+Time: 0.310672
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 6, pc = 6
+Time: 0.156598
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 6, pc = 6
+Time: 0.158952
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 6, pc = 6
+Time: 0.158687
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 6, pc = 6
+Time: 0.161017
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 6, pc = 6
+Time: 0.159689
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 6, pc = 6
+Time: 0.160589
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 6, pc = 6
+Time: 0.157701
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 6, pc = 6
+Time: 0.158195
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 6, pc = 6
+Time: 0.157534
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 6, pc = 6
+Time: 0.157190
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 6, pc = 6
+Time: 0.159182
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 1, pc = 36
+Time: 0.267851
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 1, pc = 36
+Time: 0.266740
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 1, pc = 36
+Time: 0.277190
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 1, pc = 36
+Time: 0.256079
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 1, pc = 36
+Time: 0.257670
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 1, pc = 36
+Time: 0.258265
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 1, pc = 36
+Time: 0.260873
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 1, pc = 36
+Time: 0.260384
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 1, pc = 36
+Time: 0.259136
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 1, pc = 36
+Time: 0.257986
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 1, pc = 36
+Time: 0.260723
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 6, pc = 6
+Time: 0.027016
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 6, pc = 6
+Time: 0.026956
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 6, pc = 6
+Time: 0.026975
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 6, pc = 6
+Time: 0.026984
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 6, pc = 6
+Time: 0.026962
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 6, pc = 6
+Time: 0.026971
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 6, pc = 6
+Time: 0.026987
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 6, pc = 6
+Time: 0.026967
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 6, pc = 6
+Time: 0.026949
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 6, pc = 6
+Time: 0.026968
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 6, pc = 6
+Time: 0.026984
+
+The arrays made by this style are correct
+Traceback (most recent call last):
+  File "/users/dlowrey/Parall-Programming-Assignments/Assignment2/a2_801352577/scripts/plot.py", line 25, in <module>
+    import matplotlib
+ModuleNotFoundError: No module named 'matplotlib'
