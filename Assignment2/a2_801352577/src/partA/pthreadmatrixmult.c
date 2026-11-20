@@ -180,13 +180,14 @@ int main(int argc, char *argv[]){
             int b = atoi(argv[5]);
             int p = atoi(argv[6]);
             double times[REPEATCOUNT];
-            pthread_t threads[p];
-            double *comparable = cCompareAgainst(m, k, n, arrayA, arrayB);
-
             if(p < 1) {
                 fprintf(stderr, "p was 0 or negative. Try again with only a positive value");
                 return 1;
             }
+            pthread_t threads[p];
+            double *comparable = cCompareAgainst(m, k, n, arrayA, arrayB);
+
+            
             //open needed files
             pthOneDRaw = fopen("data/pth_1D_raw.csv", "a");
             if (pthOneDRaw == NULL) {

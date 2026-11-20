@@ -213,6 +213,7 @@ int main(int argc, char *argv[]){
             int p = pr * pc;
             if(pr < 1 || pc < 1) {
                 fprintf(stderr, "pr or pc is negative. Please use positive values and follow the format of 2 m k n b pr pc\n");
+                return 1;
             }
             double times[REPEATCOUNT];
             omp_set_num_threads(p);
@@ -289,8 +290,8 @@ int main(int argc, char *argv[]){
         } default: {
             fprintf(stderr, "Input correct number of values please: \n");
             fprintf(stderr, "Sequential: file mode m k n b\n");
-            fprintf(stderr, "One-Dimension: file mode m k n b p");
-            fprintf(stderr, "Two-Dimension: file mode m k n b pr pc");
+            fprintf(stderr, "One-Dimension: file mode m k n b p\n");
+            fprintf(stderr, "Two-Dimension: file mode m k n b pr pc\n");
 
             return 1;
 
