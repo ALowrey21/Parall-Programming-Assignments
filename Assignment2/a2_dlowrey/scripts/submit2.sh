@@ -27,6 +27,11 @@ GRIDS="1x2 2x2 2x4 3x4 3x6 6x6"     # pr x pc for the square grids
 ./partA 0 2048 2048 2048
 
 BSTAR=$(cat data/b_star_holder.txt)
+if [ "$BSTAR" -eq 0 ]; then
+    TILES="0"
+else
+    TILES="0 $BSTAR"
+fi
 
 for s in $SIZES; do
     for b in $TILES; do
@@ -71,5 +76,5 @@ for s in $SIZES; do
 done
 ./partB 2 2048 2048 2048 $BSTAR 1 36
 ./partB 2 1000 1024 1536 $BSTAR 6 6
-python3 scripts/plot.py 
+python3 scripts/plot.py || echo "Plotting failed"
 
