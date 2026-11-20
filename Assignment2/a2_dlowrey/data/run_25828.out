@@ -1,0 +1,3727 @@
+gal-c3.charlotte.edu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  36
+On-line CPU(s) list:                     0-35
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) Gold 6154 CPU @ 3.00GHz
+CPU family:                              6
+Model:                                   85
+Thread(s) per core:                      1
+Core(s) per socket:                      18
+Socket(s):                               2
+Stepping:                                4
+CPU(s) scaling MHz:                      77%
+CPU max MHz:                             3700.0000
+CPU min MHz:                             1200.0000
+BogoMIPS:                                6000.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 pti intel_ppin ssbd mba ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke md_clear flush_l1d arch_capabilities
+L1d cache:                               1.1 MiB (36 instances)
+L1i cache:                               1.1 MiB (36 instances)
+L2 cache:                                36 MiB (36 instances)
+L3 cache:                                49.5 MiB (2 instances)
+NUMA node(s):                            2
+NUMA node0 CPU(s):                       0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34
+NUMA node1 CPU(s):                       1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35
+Vulnerability Gather data sampling:      Mitigation; Microcode
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:                      Mitigation; PTE Inversion
+Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT disabled
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT disabled
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Mitigation; IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT disabled
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+rm -f partA partB
+gcc -O2 -pthread src/partA/pthreadmatrixmult.c -o partA -lm
+gcc -O2 -fopenmp src/partB/ompmatrixmult.c -o partB -lm
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 0
+Time: 0.594793
+
+Sequential Attempt 2 with b = 0
+Time: 0.595066
+
+Sequential Attempt 3 with b = 0
+Time: 0.594890
+
+Sequential Attempt 4 with b = 0
+Time: 0.594679
+
+Sequential Attempt 5 with b = 0
+Time: 0.594800
+
+Sequential Attempt 6 with b = 0
+Time: 0.594790
+
+Sequential Attempt 7 with b = 0
+Time: 0.594837
+
+Sequential Attempt 8 with b = 0
+Time: 0.594677
+
+Sequential Attempt 9 with b = 0
+Time: 0.594777
+
+Sequential Attempt 10 with b = 0
+Time: 0.594970
+
+Sequential Attempt 11 with b = 0
+Time: 0.594966
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 0
+Time: 6.842251
+
+Sequential Attempt 2 with b = 0
+Time: 6.834174
+
+Sequential Attempt 3 with b = 0
+Time: 6.826138
+
+Sequential Attempt 4 with b = 0
+Time: 6.829328
+
+Sequential Attempt 5 with b = 0
+Time: 6.825938
+
+Sequential Attempt 6 with b = 0
+Time: 6.830214
+
+Sequential Attempt 7 with b = 0
+Time: 6.828978
+
+Sequential Attempt 8 with b = 0
+Time: 6.831298
+
+Sequential Attempt 9 with b = 0
+Time: 6.828158
+
+Sequential Attempt 10 with b = 0
+Time: 6.836294
+
+Sequential Attempt 11 with b = 0
+Time: 6.826411
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 16
+Time: 5.701941
+
+Sequential Attempt 2 with b = 16
+Time: 5.701257
+
+Sequential Attempt 3 with b = 16
+Time: 5.701394
+
+Sequential Attempt 4 with b = 16
+Time: 5.701011
+
+Sequential Attempt 5 with b = 16
+Time: 5.699375
+
+Sequential Attempt 6 with b = 16
+Time: 5.699926
+
+Sequential Attempt 7 with b = 16
+Time: 5.699483
+
+Sequential Attempt 8 with b = 16
+Time: 5.699608
+
+Sequential Attempt 9 with b = 16
+Time: 5.699650
+
+Sequential Attempt 10 with b = 16
+Time: 5.699669
+
+Sequential Attempt 11 with b = 16
+Time: 5.699504
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 32
+Time: 5.167000
+
+Sequential Attempt 2 with b = 32
+Time: 5.165617
+
+Sequential Attempt 3 with b = 32
+Time: 5.165635
+
+Sequential Attempt 4 with b = 32
+Time: 5.166198
+
+Sequential Attempt 5 with b = 32
+Time: 5.165007
+
+Sequential Attempt 6 with b = 32
+Time: 5.163686
+
+Sequential Attempt 7 with b = 32
+Time: 5.165833
+
+Sequential Attempt 8 with b = 32
+Time: 5.164344
+
+Sequential Attempt 9 with b = 32
+Time: 5.163508
+
+Sequential Attempt 10 with b = 32
+Time: 5.166245
+
+Sequential Attempt 11 with b = 32
+Time: 5.165972
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 64
+Time: 5.152348
+
+Sequential Attempt 2 with b = 64
+Time: 5.152638
+
+Sequential Attempt 3 with b = 64
+Time: 5.153998
+
+Sequential Attempt 4 with b = 64
+Time: 5.153581
+
+Sequential Attempt 5 with b = 64
+Time: 5.153256
+
+Sequential Attempt 6 with b = 64
+Time: 5.153883
+
+Sequential Attempt 7 with b = 64
+Time: 5.153560
+
+Sequential Attempt 8 with b = 64
+Time: 5.154370
+
+Sequential Attempt 9 with b = 64
+Time: 5.152850
+
+Sequential Attempt 10 with b = 64
+Time: 5.153711
+
+Sequential Attempt 11 with b = 64
+Time: 5.154174
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 128
+Time: 6.998910
+
+Sequential Attempt 2 with b = 128
+Time: 6.993861
+
+Sequential Attempt 3 with b = 128
+Time: 7.018548
+
+Sequential Attempt 4 with b = 128
+Time: 7.000979
+
+Sequential Attempt 5 with b = 128
+Time: 6.996699
+
+Sequential Attempt 6 with b = 128
+Time: 7.001464
+
+Sequential Attempt 7 with b = 128
+Time: 6.998682
+
+Sequential Attempt 8 with b = 128
+Time: 7.009838
+
+Sequential Attempt 9 with b = 128
+Time: 6.990333
+
+Sequential Attempt 10 with b = 128
+Time: 7.018402
+
+Sequential Attempt 11 with b = 128
+Time: 6.996025
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 256
+Time: 5.812686
+
+Sequential Attempt 2 with b = 256
+Time: 5.789986
+
+Sequential Attempt 3 with b = 256
+Time: 5.833976
+
+Sequential Attempt 4 with b = 256
+Time: 5.805879
+
+Sequential Attempt 5 with b = 256
+Time: 5.824441
+
+Sequential Attempt 6 with b = 256
+Time: 5.823227
+
+Sequential Attempt 7 with b = 256
+Time: 5.783012
+
+Sequential Attempt 8 with b = 256
+Time: 5.768744
+
+Sequential Attempt 9 with b = 256
+Time: 5.809450
+
+Sequential Attempt 10 with b = 256
+Time: 5.798271
+
+Sequential Attempt 11 with b = 256
+Time: 5.848567
+
+The arrays made by this style are correct
+
+The b with the smallest median time is 64 with a time of 5.153581
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 1
+Time: 0.619933
+
+One-Dimensional Attempt 2 with b = 0 and p = 1
+Time: 0.619183
+
+One-Dimensional Attempt 3 with b = 0 and p = 1
+Time: 0.618843
+
+One-Dimensional Attempt 4 with b = 0 and p = 1
+Time: 0.618794
+
+One-Dimensional Attempt 5 with b = 0 and p = 1
+Time: 0.619060
+
+One-Dimensional Attempt 6 with b = 0 and p = 1
+Time: 0.619188
+
+One-Dimensional Attempt 7 with b = 0 and p = 1
+Time: 0.618515
+
+One-Dimensional Attempt 8 with b = 0 and p = 1
+Time: 0.618590
+
+One-Dimensional Attempt 9 with b = 0 and p = 1
+Time: 0.618754
+
+One-Dimensional Attempt 10 with b = 0 and p = 1
+Time: 0.618991
+
+One-Dimensional Attempt 11 with b = 0 and p = 1
+Time: 0.618577
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 2
+Time: 0.311742
+
+One-Dimensional Attempt 2 with b = 0 and p = 2
+Time: 0.310019
+
+One-Dimensional Attempt 3 with b = 0 and p = 2
+Time: 0.310289
+
+One-Dimensional Attempt 4 with b = 0 and p = 2
+Time: 0.310339
+
+One-Dimensional Attempt 5 with b = 0 and p = 2
+Time: 0.310116
+
+One-Dimensional Attempt 6 with b = 0 and p = 2
+Time: 0.310081
+
+One-Dimensional Attempt 7 with b = 0 and p = 2
+Time: 0.310087
+
+One-Dimensional Attempt 8 with b = 0 and p = 2
+Time: 0.310114
+
+One-Dimensional Attempt 9 with b = 0 and p = 2
+Time: 0.310191
+
+One-Dimensional Attempt 10 with b = 0 and p = 2
+Time: 0.310191
+
+One-Dimensional Attempt 11 with b = 0 and p = 2
+Time: 0.310227
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 4
+Time: 0.152089
+
+One-Dimensional Attempt 2 with b = 0 and p = 4
+Time: 0.152058
+
+One-Dimensional Attempt 3 with b = 0 and p = 4
+Time: 0.152003
+
+One-Dimensional Attempt 4 with b = 0 and p = 4
+Time: 0.152013
+
+One-Dimensional Attempt 5 with b = 0 and p = 4
+Time: 0.152083
+
+One-Dimensional Attempt 6 with b = 0 and p = 4
+Time: 0.152302
+
+One-Dimensional Attempt 7 with b = 0 and p = 4
+Time: 0.152029
+
+One-Dimensional Attempt 8 with b = 0 and p = 4
+Time: 0.152028
+
+One-Dimensional Attempt 9 with b = 0 and p = 4
+Time: 0.152128
+
+One-Dimensional Attempt 10 with b = 0 and p = 4
+Time: 0.152096
+
+One-Dimensional Attempt 11 with b = 0 and p = 4
+Time: 0.152282
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 8
+Time: 0.076429
+
+One-Dimensional Attempt 2 with b = 0 and p = 8
+Time: 0.076229
+
+One-Dimensional Attempt 3 with b = 0 and p = 8
+Time: 0.076277
+
+One-Dimensional Attempt 4 with b = 0 and p = 8
+Time: 0.076288
+
+One-Dimensional Attempt 5 with b = 0 and p = 8
+Time: 0.076208
+
+One-Dimensional Attempt 6 with b = 0 and p = 8
+Time: 0.076126
+
+One-Dimensional Attempt 7 with b = 0 and p = 8
+Time: 0.076172
+
+One-Dimensional Attempt 8 with b = 0 and p = 8
+Time: 0.076238
+
+One-Dimensional Attempt 9 with b = 0 and p = 8
+Time: 0.076130
+
+One-Dimensional Attempt 10 with b = 0 and p = 8
+Time: 0.076409
+
+One-Dimensional Attempt 11 with b = 0 and p = 8
+Time: 0.076271
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 12
+Time: 0.053123
+
+One-Dimensional Attempt 2 with b = 0 and p = 12
+Time: 0.053162
+
+One-Dimensional Attempt 3 with b = 0 and p = 12
+Time: 0.053119
+
+One-Dimensional Attempt 4 with b = 0 and p = 12
+Time: 0.053163
+
+One-Dimensional Attempt 5 with b = 0 and p = 12
+Time: 0.053056
+
+One-Dimensional Attempt 6 with b = 0 and p = 12
+Time: 0.053074
+
+One-Dimensional Attempt 7 with b = 0 and p = 12
+Time: 0.053090
+
+One-Dimensional Attempt 8 with b = 0 and p = 12
+Time: 0.053026
+
+One-Dimensional Attempt 9 with b = 0 and p = 12
+Time: 0.053134
+
+One-Dimensional Attempt 10 with b = 0 and p = 12
+Time: 0.053137
+
+One-Dimensional Attempt 11 with b = 0 and p = 12
+Time: 0.053036
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 18
+Time: 0.043178
+
+One-Dimensional Attempt 2 with b = 0 and p = 18
+Time: 0.043126
+
+One-Dimensional Attempt 3 with b = 0 and p = 18
+Time: 0.043187
+
+One-Dimensional Attempt 4 with b = 0 and p = 18
+Time: 0.043169
+
+One-Dimensional Attempt 5 with b = 0 and p = 18
+Time: 0.043073
+
+One-Dimensional Attempt 6 with b = 0 and p = 18
+Time: 0.043109
+
+One-Dimensional Attempt 7 with b = 0 and p = 18
+Time: 0.043146
+
+One-Dimensional Attempt 8 with b = 0 and p = 18
+Time: 0.043083
+
+One-Dimensional Attempt 9 with b = 0 and p = 18
+Time: 0.043158
+
+One-Dimensional Attempt 10 with b = 0 and p = 18
+Time: 0.043142
+
+One-Dimensional Attempt 11 with b = 0 and p = 18
+Time: 0.043118
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 36
+Time: 0.028562
+
+One-Dimensional Attempt 2 with b = 0 and p = 36
+Time: 0.028928
+
+One-Dimensional Attempt 3 with b = 0 and p = 36
+Time: 0.028704
+
+One-Dimensional Attempt 4 with b = 0 and p = 36
+Time: 0.028633
+
+One-Dimensional Attempt 5 with b = 0 and p = 36
+Time: 0.028459
+
+One-Dimensional Attempt 6 with b = 0 and p = 36
+Time: 0.028896
+
+One-Dimensional Attempt 7 with b = 0 and p = 36
+Time: 0.028700
+
+One-Dimensional Attempt 8 with b = 0 and p = 36
+Time: 0.028623
+
+One-Dimensional Attempt 9 with b = 0 and p = 36
+Time: 0.028335
+
+One-Dimensional Attempt 10 with b = 0 and p = 36
+Time: 0.028702
+
+One-Dimensional Attempt 11 with b = 0 and p = 36
+Time: 0.028652
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 1
+Time: 0.627411
+
+One-Dimensional Attempt 2 with b = 64 and p = 1
+Time: 0.628087
+
+One-Dimensional Attempt 3 with b = 64 and p = 1
+Time: 0.627192
+
+One-Dimensional Attempt 4 with b = 64 and p = 1
+Time: 0.627952
+
+One-Dimensional Attempt 5 with b = 64 and p = 1
+Time: 0.627070
+
+One-Dimensional Attempt 6 with b = 64 and p = 1
+Time: 0.627817
+
+One-Dimensional Attempt 7 with b = 64 and p = 1
+Time: 0.627059
+
+One-Dimensional Attempt 8 with b = 64 and p = 1
+Time: 0.627849
+
+One-Dimensional Attempt 9 with b = 64 and p = 1
+Time: 0.626998
+
+One-Dimensional Attempt 10 with b = 64 and p = 1
+Time: 0.626906
+
+One-Dimensional Attempt 11 with b = 64 and p = 1
+Time: 0.627894
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 2
+Time: 0.315190
+
+One-Dimensional Attempt 2 with b = 64 and p = 2
+Time: 0.315529
+
+One-Dimensional Attempt 3 with b = 64 and p = 2
+Time: 0.315383
+
+One-Dimensional Attempt 4 with b = 64 and p = 2
+Time: 0.315163
+
+One-Dimensional Attempt 5 with b = 64 and p = 2
+Time: 0.315269
+
+One-Dimensional Attempt 6 with b = 64 and p = 2
+Time: 0.315255
+
+One-Dimensional Attempt 7 with b = 64 and p = 2
+Time: 0.315476
+
+One-Dimensional Attempt 8 with b = 64 and p = 2
+Time: 0.315108
+
+One-Dimensional Attempt 9 with b = 64 and p = 2
+Time: 0.315284
+
+One-Dimensional Attempt 10 with b = 64 and p = 2
+Time: 0.315230
+
+One-Dimensional Attempt 11 with b = 64 and p = 2
+Time: 0.316318
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 4
+Time: 0.157597
+
+One-Dimensional Attempt 2 with b = 64 and p = 4
+Time: 0.157546
+
+One-Dimensional Attempt 3 with b = 64 and p = 4
+Time: 0.157228
+
+One-Dimensional Attempt 4 with b = 64 and p = 4
+Time: 0.157384
+
+One-Dimensional Attempt 5 with b = 64 and p = 4
+Time: 0.157454
+
+One-Dimensional Attempt 6 with b = 64 and p = 4
+Time: 0.157306
+
+One-Dimensional Attempt 7 with b = 64 and p = 4
+Time: 0.157195
+
+One-Dimensional Attempt 8 with b = 64 and p = 4
+Time: 0.157543
+
+One-Dimensional Attempt 9 with b = 64 and p = 4
+Time: 0.157330
+
+One-Dimensional Attempt 10 with b = 64 and p = 4
+Time: 0.157227
+
+One-Dimensional Attempt 11 with b = 64 and p = 4
+Time: 0.157415
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 8
+Time: 0.079084
+
+One-Dimensional Attempt 2 with b = 64 and p = 8
+Time: 0.079017
+
+One-Dimensional Attempt 3 with b = 64 and p = 8
+Time: 0.079013
+
+One-Dimensional Attempt 4 with b = 64 and p = 8
+Time: 0.078936
+
+One-Dimensional Attempt 5 with b = 64 and p = 8
+Time: 0.078928
+
+One-Dimensional Attempt 6 with b = 64 and p = 8
+Time: 0.079016
+
+One-Dimensional Attempt 7 with b = 64 and p = 8
+Time: 0.079067
+
+One-Dimensional Attempt 8 with b = 64 and p = 8
+Time: 0.078932
+
+One-Dimensional Attempt 9 with b = 64 and p = 8
+Time: 0.078967
+
+One-Dimensional Attempt 10 with b = 64 and p = 8
+Time: 0.078917
+
+One-Dimensional Attempt 11 with b = 64 and p = 8
+Time: 0.079180
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 12
+Time: 0.055017
+
+One-Dimensional Attempt 2 with b = 64 and p = 12
+Time: 0.055036
+
+One-Dimensional Attempt 3 with b = 64 and p = 12
+Time: 0.054974
+
+One-Dimensional Attempt 4 with b = 64 and p = 12
+Time: 0.054986
+
+One-Dimensional Attempt 5 with b = 64 and p = 12
+Time: 0.055034
+
+One-Dimensional Attempt 6 with b = 64 and p = 12
+Time: 0.054946
+
+One-Dimensional Attempt 7 with b = 64 and p = 12
+Time: 0.054865
+
+One-Dimensional Attempt 8 with b = 64 and p = 12
+Time: 0.055038
+
+One-Dimensional Attempt 9 with b = 64 and p = 12
+Time: 0.054955
+
+One-Dimensional Attempt 10 with b = 64 and p = 12
+Time: 0.054974
+
+One-Dimensional Attempt 11 with b = 64 and p = 12
+Time: 0.054941
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 18
+Time: 0.044825
+
+One-Dimensional Attempt 2 with b = 64 and p = 18
+Time: 0.044698
+
+One-Dimensional Attempt 3 with b = 64 and p = 18
+Time: 0.044854
+
+One-Dimensional Attempt 4 with b = 64 and p = 18
+Time: 0.044869
+
+One-Dimensional Attempt 5 with b = 64 and p = 18
+Time: 0.044858
+
+One-Dimensional Attempt 6 with b = 64 and p = 18
+Time: 0.044855
+
+One-Dimensional Attempt 7 with b = 64 and p = 18
+Time: 0.044892
+
+One-Dimensional Attempt 8 with b = 64 and p = 18
+Time: 0.044821
+
+One-Dimensional Attempt 9 with b = 64 and p = 18
+Time: 0.044873
+
+One-Dimensional Attempt 10 with b = 64 and p = 18
+Time: 0.044885
+
+One-Dimensional Attempt 11 with b = 64 and p = 18
+Time: 0.044849
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 36
+Time: 0.028013
+
+One-Dimensional Attempt 2 with b = 64 and p = 36
+Time: 0.027993
+
+One-Dimensional Attempt 3 with b = 64 and p = 36
+Time: 0.027924
+
+One-Dimensional Attempt 4 with b = 64 and p = 36
+Time: 0.027939
+
+One-Dimensional Attempt 5 with b = 64 and p = 36
+Time: 0.028644
+
+One-Dimensional Attempt 6 with b = 64 and p = 36
+Time: 0.028630
+
+One-Dimensional Attempt 7 with b = 64 and p = 36
+Time: 0.028643
+
+One-Dimensional Attempt 8 with b = 64 and p = 36
+Time: 0.028586
+
+One-Dimensional Attempt 9 with b = 64 and p = 36
+Time: 0.028677
+
+One-Dimensional Attempt 10 with b = 64 and p = 36
+Time: 0.028652
+
+One-Dimensional Attempt 11 with b = 64 and p = 36
+Time: 0.028628
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 1
+Time: 7.100124
+
+One-Dimensional Attempt 2 with b = 0 and p = 1
+Time: 7.113880
+
+One-Dimensional Attempt 3 with b = 0 and p = 1
+Time: 7.083014
+
+One-Dimensional Attempt 4 with b = 0 and p = 1
+Time: 7.089783
+
+One-Dimensional Attempt 5 with b = 0 and p = 1
+Time: 7.092140
+
+One-Dimensional Attempt 6 with b = 0 and p = 1
+Time: 7.066020
+
+One-Dimensional Attempt 7 with b = 0 and p = 1
+Time: 6.980061
+
+One-Dimensional Attempt 8 with b = 0 and p = 1
+Time: 6.975621
+
+One-Dimensional Attempt 9 with b = 0 and p = 1
+Time: 6.990244
+
+One-Dimensional Attempt 10 with b = 0 and p = 1
+Time: 6.984458
+
+One-Dimensional Attempt 11 with b = 0 and p = 1
+Time: 6.981176
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 2
+Time: 3.865023
+
+One-Dimensional Attempt 2 with b = 0 and p = 2
+Time: 3.884963
+
+One-Dimensional Attempt 3 with b = 0 and p = 2
+Time: 3.897187
+
+One-Dimensional Attempt 4 with b = 0 and p = 2
+Time: 3.921187
+
+One-Dimensional Attempt 5 with b = 0 and p = 2
+Time: 3.904597
+
+One-Dimensional Attempt 6 with b = 0 and p = 2
+Time: 3.889011
+
+One-Dimensional Attempt 7 with b = 0 and p = 2
+Time: 3.912292
+
+One-Dimensional Attempt 8 with b = 0 and p = 2
+Time: 3.883945
+
+One-Dimensional Attempt 9 with b = 0 and p = 2
+Time: 3.875740
+
+One-Dimensional Attempt 10 with b = 0 and p = 2
+Time: 3.875110
+
+One-Dimensional Attempt 11 with b = 0 and p = 2
+Time: 3.910425
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 4
+Time: 2.021474
+
+One-Dimensional Attempt 2 with b = 0 and p = 4
+Time: 2.022671
+
+One-Dimensional Attempt 3 with b = 0 and p = 4
+Time: 2.024068
+
+One-Dimensional Attempt 4 with b = 0 and p = 4
+Time: 2.080499
+
+One-Dimensional Attempt 5 with b = 0 and p = 4
+Time: 2.103714
+
+One-Dimensional Attempt 6 with b = 0 and p = 4
+Time: 2.008939
+
+One-Dimensional Attempt 7 with b = 0 and p = 4
+Time: 1.956857
+
+One-Dimensional Attempt 8 with b = 0 and p = 4
+Time: 1.951509
+
+One-Dimensional Attempt 9 with b = 0 and p = 4
+Time: 1.964108
+
+One-Dimensional Attempt 10 with b = 0 and p = 4
+Time: 1.953574
+
+One-Dimensional Attempt 11 with b = 0 and p = 4
+Time: 1.953659
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 8
+Time: 1.027243
+
+One-Dimensional Attempt 2 with b = 0 and p = 8
+Time: 1.028587
+
+One-Dimensional Attempt 3 with b = 0 and p = 8
+Time: 1.030312
+
+One-Dimensional Attempt 4 with b = 0 and p = 8
+Time: 1.027724
+
+One-Dimensional Attempt 5 with b = 0 and p = 8
+Time: 1.026783
+
+One-Dimensional Attempt 6 with b = 0 and p = 8
+Time: 1.029148
+
+One-Dimensional Attempt 7 with b = 0 and p = 8
+Time: 1.029223
+
+One-Dimensional Attempt 8 with b = 0 and p = 8
+Time: 1.030760
+
+One-Dimensional Attempt 9 with b = 0 and p = 8
+Time: 1.030094
+
+One-Dimensional Attempt 10 with b = 0 and p = 8
+Time: 1.028465
+
+One-Dimensional Attempt 11 with b = 0 and p = 8
+Time: 1.029289
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 12
+Time: 0.729283
+
+One-Dimensional Attempt 2 with b = 0 and p = 12
+Time: 0.727733
+
+One-Dimensional Attempt 3 with b = 0 and p = 12
+Time: 0.728501
+
+One-Dimensional Attempt 4 with b = 0 and p = 12
+Time: 0.727701
+
+One-Dimensional Attempt 5 with b = 0 and p = 12
+Time: 0.727496
+
+One-Dimensional Attempt 6 with b = 0 and p = 12
+Time: 0.726734
+
+One-Dimensional Attempt 7 with b = 0 and p = 12
+Time: 0.728103
+
+One-Dimensional Attempt 8 with b = 0 and p = 12
+Time: 0.727118
+
+One-Dimensional Attempt 9 with b = 0 and p = 12
+Time: 0.730959
+
+One-Dimensional Attempt 10 with b = 0 and p = 12
+Time: 0.729360
+
+One-Dimensional Attempt 11 with b = 0 and p = 12
+Time: 0.727725
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 18
+Time: 0.532959
+
+One-Dimensional Attempt 2 with b = 0 and p = 18
+Time: 0.532060
+
+One-Dimensional Attempt 3 with b = 0 and p = 18
+Time: 0.532661
+
+One-Dimensional Attempt 4 with b = 0 and p = 18
+Time: 0.534326
+
+One-Dimensional Attempt 5 with b = 0 and p = 18
+Time: 0.532483
+
+One-Dimensional Attempt 6 with b = 0 and p = 18
+Time: 0.533774
+
+One-Dimensional Attempt 7 with b = 0 and p = 18
+Time: 0.535139
+
+One-Dimensional Attempt 8 with b = 0 and p = 18
+Time: 0.533521
+
+One-Dimensional Attempt 9 with b = 0 and p = 18
+Time: 0.532950
+
+One-Dimensional Attempt 10 with b = 0 and p = 18
+Time: 0.536236
+
+One-Dimensional Attempt 11 with b = 0 and p = 18
+Time: 0.535569
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 36
+Time: 0.446803
+
+One-Dimensional Attempt 2 with b = 0 and p = 36
+Time: 0.421200
+
+One-Dimensional Attempt 3 with b = 0 and p = 36
+Time: 0.479366
+
+One-Dimensional Attempt 4 with b = 0 and p = 36
+Time: 0.433142
+
+One-Dimensional Attempt 5 with b = 0 and p = 36
+Time: 0.485262
+
+One-Dimensional Attempt 6 with b = 0 and p = 36
+Time: 0.399115
+
+One-Dimensional Attempt 7 with b = 0 and p = 36
+Time: 0.396049
+
+One-Dimensional Attempt 8 with b = 0 and p = 36
+Time: 0.431507
+
+One-Dimensional Attempt 9 with b = 0 and p = 36
+Time: 0.370965
+
+One-Dimensional Attempt 10 with b = 0 and p = 36
+Time: 0.394274
+
+One-Dimensional Attempt 11 with b = 0 and p = 36
+Time: 0.393466
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 1
+Time: 5.169242
+
+One-Dimensional Attempt 2 with b = 64 and p = 1
+Time: 5.158179
+
+One-Dimensional Attempt 3 with b = 64 and p = 1
+Time: 5.168164
+
+One-Dimensional Attempt 4 with b = 64 and p = 1
+Time: 5.169129
+
+One-Dimensional Attempt 5 with b = 64 and p = 1
+Time: 5.167700
+
+One-Dimensional Attempt 6 with b = 64 and p = 1
+Time: 5.167964
+
+One-Dimensional Attempt 7 with b = 64 and p = 1
+Time: 5.166641
+
+One-Dimensional Attempt 8 with b = 64 and p = 1
+Time: 5.167553
+
+One-Dimensional Attempt 9 with b = 64 and p = 1
+Time: 5.161081
+
+One-Dimensional Attempt 10 with b = 64 and p = 1
+Time: 5.160165
+
+One-Dimensional Attempt 11 with b = 64 and p = 1
+Time: 5.160625
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 2
+Time: 2.569218
+
+One-Dimensional Attempt 2 with b = 64 and p = 2
+Time: 2.565547
+
+One-Dimensional Attempt 3 with b = 64 and p = 2
+Time: 2.569974
+
+One-Dimensional Attempt 4 with b = 64 and p = 2
+Time: 2.569099
+
+One-Dimensional Attempt 5 with b = 64 and p = 2
+Time: 2.569356
+
+One-Dimensional Attempt 6 with b = 64 and p = 2
+Time: 2.569860
+
+One-Dimensional Attempt 7 with b = 64 and p = 2
+Time: 2.569059
+
+One-Dimensional Attempt 8 with b = 64 and p = 2
+Time: 2.569297
+
+One-Dimensional Attempt 9 with b = 64 and p = 2
+Time: 2.569307
+
+One-Dimensional Attempt 10 with b = 64 and p = 2
+Time: 2.570011
+
+One-Dimensional Attempt 11 with b = 64 and p = 2
+Time: 2.569287
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 4
+Time: 1.284307
+
+One-Dimensional Attempt 2 with b = 64 and p = 4
+Time: 1.283770
+
+One-Dimensional Attempt 3 with b = 64 and p = 4
+Time: 1.284105
+
+One-Dimensional Attempt 4 with b = 64 and p = 4
+Time: 1.285041
+
+One-Dimensional Attempt 5 with b = 64 and p = 4
+Time: 1.284188
+
+One-Dimensional Attempt 6 with b = 64 and p = 4
+Time: 1.283793
+
+One-Dimensional Attempt 7 with b = 64 and p = 4
+Time: 1.283799
+
+One-Dimensional Attempt 8 with b = 64 and p = 4
+Time: 1.284276
+
+One-Dimensional Attempt 9 with b = 64 and p = 4
+Time: 1.283860
+
+One-Dimensional Attempt 10 with b = 64 and p = 4
+Time: 1.284318
+
+One-Dimensional Attempt 11 with b = 64 and p = 4
+Time: 1.284200
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 8
+Time: 0.640598
+
+One-Dimensional Attempt 2 with b = 64 and p = 8
+Time: 0.640668
+
+One-Dimensional Attempt 3 with b = 64 and p = 8
+Time: 0.640948
+
+One-Dimensional Attempt 4 with b = 64 and p = 8
+Time: 0.640928
+
+One-Dimensional Attempt 5 with b = 64 and p = 8
+Time: 0.641001
+
+One-Dimensional Attempt 6 with b = 64 and p = 8
+Time: 0.640976
+
+One-Dimensional Attempt 7 with b = 64 and p = 8
+Time: 0.640952
+
+One-Dimensional Attempt 8 with b = 64 and p = 8
+Time: 0.640856
+
+One-Dimensional Attempt 9 with b = 64 and p = 8
+Time: 0.640992
+
+One-Dimensional Attempt 10 with b = 64 and p = 8
+Time: 0.640928
+
+One-Dimensional Attempt 11 with b = 64 and p = 8
+Time: 0.641036
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 12
+Time: 0.452337
+
+One-Dimensional Attempt 2 with b = 64 and p = 12
+Time: 0.454204
+
+One-Dimensional Attempt 3 with b = 64 and p = 12
+Time: 0.454500
+
+One-Dimensional Attempt 4 with b = 64 and p = 12
+Time: 0.454405
+
+One-Dimensional Attempt 5 with b = 64 and p = 12
+Time: 0.454477
+
+One-Dimensional Attempt 6 with b = 64 and p = 12
+Time: 0.454431
+
+One-Dimensional Attempt 7 with b = 64 and p = 12
+Time: 0.454475
+
+One-Dimensional Attempt 8 with b = 64 and p = 12
+Time: 0.454386
+
+One-Dimensional Attempt 9 with b = 64 and p = 12
+Time: 0.454364
+
+One-Dimensional Attempt 10 with b = 64 and p = 12
+Time: 0.454357
+
+One-Dimensional Attempt 11 with b = 64 and p = 12
+Time: 0.454387
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 18
+Time: 0.332098
+
+One-Dimensional Attempt 2 with b = 64 and p = 18
+Time: 0.335377
+
+One-Dimensional Attempt 3 with b = 64 and p = 18
+Time: 0.331758
+
+One-Dimensional Attempt 4 with b = 64 and p = 18
+Time: 0.332166
+
+One-Dimensional Attempt 5 with b = 64 and p = 18
+Time: 0.335441
+
+One-Dimensional Attempt 6 with b = 64 and p = 18
+Time: 0.333201
+
+One-Dimensional Attempt 7 with b = 64 and p = 18
+Time: 0.331992
+
+One-Dimensional Attempt 8 with b = 64 and p = 18
+Time: 0.332024
+
+One-Dimensional Attempt 9 with b = 64 and p = 18
+Time: 0.339732
+
+One-Dimensional Attempt 10 with b = 64 and p = 18
+Time: 0.334381
+
+One-Dimensional Attempt 11 with b = 64 and p = 18
+Time: 0.335225
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 36
+Time: 0.280817
+
+One-Dimensional Attempt 2 with b = 64 and p = 36
+Time: 0.261747
+
+One-Dimensional Attempt 3 with b = 64 and p = 36
+Time: 0.291679
+
+One-Dimensional Attempt 4 with b = 64 and p = 36
+Time: 0.303478
+
+One-Dimensional Attempt 5 with b = 64 and p = 36
+Time: 0.284268
+
+One-Dimensional Attempt 6 with b = 64 and p = 36
+Time: 0.231968
+
+One-Dimensional Attempt 7 with b = 64 and p = 36
+Time: 0.267952
+
+One-Dimensional Attempt 8 with b = 64 and p = 36
+Time: 0.263323
+
+One-Dimensional Attempt 9 with b = 64 and p = 36
+Time: 0.248481
+
+One-Dimensional Attempt 10 with b = 64 and p = 36
+Time: 0.291048
+
+One-Dimensional Attempt 11 with b = 64 and p = 36
+Time: 0.233771
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318838
+
+Two-Dimension Attempt: 2 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318850
+
+Two-Dimension Attempt: 3 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318938
+
+Two-Dimension Attempt: 4 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318888
+
+Two-Dimension Attempt: 5 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318745
+
+Two-Dimension Attempt: 6 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318725
+
+Two-Dimension Attempt: 7 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.317998
+
+Two-Dimension Attempt: 8 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318435
+
+Two-Dimension Attempt: 9 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318100
+
+Two-Dimension Attempt: 10 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318178
+
+Two-Dimension Attempt: 11 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 0.318147
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159259
+
+Two-Dimension Attempt: 2 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159465
+
+Two-Dimension Attempt: 3 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159044
+
+Two-Dimension Attempt: 4 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159154
+
+Two-Dimension Attempt: 5 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159277
+
+Two-Dimension Attempt: 6 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.158980
+
+Two-Dimension Attempt: 7 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159070
+
+Two-Dimension Attempt: 8 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.158961
+
+Two-Dimension Attempt: 9 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159294
+
+Two-Dimension Attempt: 10 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.158956
+
+Two-Dimension Attempt: 11 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 0.159300
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082474
+
+Two-Dimension Attempt: 2 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082638
+
+Two-Dimension Attempt: 3 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082528
+
+Two-Dimension Attempt: 4 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082141
+
+Two-Dimension Attempt: 5 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082283
+
+Two-Dimension Attempt: 6 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082168
+
+Two-Dimension Attempt: 7 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082341
+
+Two-Dimension Attempt: 8 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082129
+
+Two-Dimension Attempt: 9 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082474
+
+Two-Dimension Attempt: 10 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082421
+
+Two-Dimension Attempt: 11 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.082613
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055296
+
+Two-Dimension Attempt: 2 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054977
+
+Two-Dimension Attempt: 3 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054995
+
+Two-Dimension Attempt: 4 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054873
+
+Two-Dimension Attempt: 5 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054924
+
+Two-Dimension Attempt: 6 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055249
+
+Two-Dimension Attempt: 7 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055104
+
+Two-Dimension Attempt: 8 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055179
+
+Two-Dimension Attempt: 9 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055260
+
+Two-Dimension Attempt: 10 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.055095
+
+Two-Dimension Attempt: 11 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.054960
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040372
+
+Two-Dimension Attempt: 2 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040828
+
+Two-Dimension Attempt: 3 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040713
+
+Two-Dimension Attempt: 4 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040325
+
+Two-Dimension Attempt: 5 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041114
+
+Two-Dimension Attempt: 6 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.041402
+
+Two-Dimension Attempt: 7 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040487
+
+Two-Dimension Attempt: 8 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040731
+
+Two-Dimension Attempt: 9 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040528
+
+Two-Dimension Attempt: 10 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040483
+
+Two-Dimension Attempt: 11 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.040994
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022072
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.021447
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022030
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022159
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022195
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.021896
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022329
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022176
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022018
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.021665
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.022899
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.558571
+
+Two-Dimension Attempt: 2 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.557746
+
+Two-Dimension Attempt: 3 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559710
+
+Two-Dimension Attempt: 4 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559140
+
+Two-Dimension Attempt: 5 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559569
+
+Two-Dimension Attempt: 6 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559027
+
+Two-Dimension Attempt: 7 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559258
+
+Two-Dimension Attempt: 8 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.557611
+
+Two-Dimension Attempt: 9 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559261
+
+Two-Dimension Attempt: 10 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.559761
+
+Two-Dimension Attempt: 11 with b: 64 and p: 2
+Dimensions of p are 1 x 2
+Time: 2.556228
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279323
+
+Two-Dimension Attempt: 2 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279274
+
+Two-Dimension Attempt: 3 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279780
+
+Two-Dimension Attempt: 4 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279138
+
+Two-Dimension Attempt: 5 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.278873
+
+Two-Dimension Attempt: 6 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279677
+
+Two-Dimension Attempt: 7 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.280679
+
+Two-Dimension Attempt: 8 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279883
+
+Two-Dimension Attempt: 9 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279301
+
+Two-Dimension Attempt: 10 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.280184
+
+Two-Dimension Attempt: 11 with b: 64 and p: 4
+Dimensions of p are 2 x 2
+Time: 1.279822
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.641416
+
+Two-Dimension Attempt: 2 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.640671
+
+Two-Dimension Attempt: 3 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.641370
+
+Two-Dimension Attempt: 4 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.640255
+
+Two-Dimension Attempt: 5 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.641168
+
+Two-Dimension Attempt: 6 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.641496
+
+Two-Dimension Attempt: 7 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.641115
+
+Two-Dimension Attempt: 8 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.640829
+
+Two-Dimension Attempt: 9 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.641974
+
+Two-Dimension Attempt: 10 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.640783
+
+Two-Dimension Attempt: 11 with b: 64 and p: 8
+Dimensions of p are 2 x 4
+Time: 0.640999
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427026
+
+Two-Dimension Attempt: 2 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427022
+
+Two-Dimension Attempt: 3 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.426684
+
+Two-Dimension Attempt: 4 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427346
+
+Two-Dimension Attempt: 5 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427251
+
+Two-Dimension Attempt: 6 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427202
+
+Two-Dimension Attempt: 7 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427036
+
+Two-Dimension Attempt: 8 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427836
+
+Two-Dimension Attempt: 9 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.426823
+
+Two-Dimension Attempt: 10 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.426948
+
+Two-Dimension Attempt: 11 with b: 64 and p: 12
+Dimensions of p are 3 x 4
+Time: 0.427021
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.294819
+
+Two-Dimension Attempt: 2 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.303394
+
+Two-Dimension Attempt: 3 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.294890
+
+Two-Dimension Attempt: 4 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.301238
+
+Two-Dimension Attempt: 5 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.301634
+
+Two-Dimension Attempt: 6 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.300017
+
+Two-Dimension Attempt: 7 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.294878
+
+Two-Dimension Attempt: 8 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.303317
+
+Two-Dimension Attempt: 9 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.299566
+
+Two-Dimension Attempt: 10 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.301580
+
+Two-Dimension Attempt: 11 with b: 64 and p: 18
+Dimensions of p are 3 x 6
+Time: 0.301836
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.196985
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.216217
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.188639
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.189301
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.210444
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.178377
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.194154
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.190118
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.178715
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.204165
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.195335
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.283653
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.260547
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.265345
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.323382
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.259922
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.305006
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.325676
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.339202
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.332082
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.336211
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 1 x 36
+Time: 0.264593
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimension Attempt: 1 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.028091
+
+Two-Dimension Attempt: 2 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.028008
+
+Two-Dimension Attempt: 3 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027956
+
+Two-Dimension Attempt: 4 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027750
+
+Two-Dimension Attempt: 5 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.028219
+
+Two-Dimension Attempt: 6 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027713
+
+Two-Dimension Attempt: 7 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027995
+
+Two-Dimension Attempt: 8 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027744
+
+Two-Dimension Attempt: 9 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027743
+
+Two-Dimension Attempt: 10 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.027942
+
+Two-Dimension Attempt: 11 with b: 64 and p: 36
+Dimensions of p are 6 x 6
+Time: 0.028927
+
+The arrays made by this style are correct
+OMP_PROC_BIND=true OMP_PLACES=cores
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 0
+Time: 0.608639
+
+Sequential Attempt 2 with b = 0
+Time: 0.608889
+
+Sequential Attempt 3 with b = 0
+Time: 0.608480
+
+Sequential Attempt 4 with b = 0
+Time: 0.608542
+
+Sequential Attempt 5 with b = 0
+Time: 0.608722
+
+Sequential Attempt 6 with b = 0
+Time: 0.608627
+
+Sequential Attempt 7 with b = 0
+Time: 0.608545
+
+Sequential Attempt 8 with b = 0
+Time: 0.608524
+
+Sequential Attempt 9 with b = 0
+Time: 0.608628
+
+Sequential Attempt 10 with b = 0
+Time: 0.608578
+
+Sequential Attempt 11 with b = 0
+Time: 0.608429
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 64
+Time: 0.628422
+
+Sequential Attempt 2 with b = 64
+Time: 0.628536
+
+Sequential Attempt 3 with b = 64
+Time: 0.628377
+
+Sequential Attempt 4 with b = 64
+Time: 0.628231
+
+Sequential Attempt 5 with b = 64
+Time: 0.628486
+
+Sequential Attempt 6 with b = 64
+Time: 0.628274
+
+Sequential Attempt 7 with b = 64
+Time: 0.628229
+
+Sequential Attempt 8 with b = 64
+Time: 0.628277
+
+Sequential Attempt 9 with b = 64
+Time: 0.628310
+
+Sequential Attempt 10 with b = 64
+Time: 0.628203
+
+Sequential Attempt 11 with b = 64
+Time: 0.628198
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 0
+Time: 6.934352
+
+Sequential Attempt 2 with b = 0
+Time: 6.928083
+
+Sequential Attempt 3 with b = 0
+Time: 6.930265
+
+Sequential Attempt 4 with b = 0
+Time: 6.920657
+
+Sequential Attempt 5 with b = 0
+Time: 6.926951
+
+Sequential Attempt 6 with b = 0
+Time: 6.936506
+
+Sequential Attempt 7 with b = 0
+Time: 6.920958
+
+Sequential Attempt 8 with b = 0
+Time: 6.929489
+
+Sequential Attempt 9 with b = 0
+Time: 6.926094
+
+Sequential Attempt 10 with b = 0
+Time: 6.926845
+
+Sequential Attempt 11 with b = 0
+Time: 6.928199
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Sequential Attempt 1 with b = 64
+Time: 5.162685
+
+Sequential Attempt 2 with b = 64
+Time: 5.162181
+
+Sequential Attempt 3 with b = 64
+Time: 5.163515
+
+Sequential Attempt 4 with b = 64
+Time: 5.161566
+
+Sequential Attempt 5 with b = 64
+Time: 5.161505
+
+Sequential Attempt 6 with b = 64
+Time: 5.161611
+
+Sequential Attempt 7 with b = 64
+Time: 5.161357
+
+Sequential Attempt 8 with b = 64
+Time: 5.161907
+
+Sequential Attempt 9 with b = 64
+Time: 5.163186
+
+Sequential Attempt 10 with b = 64
+Time: 5.161265
+
+Sequential Attempt 11 with b = 64
+Time: 5.160541
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 1
+Time: 0.619868
+
+One-Dimensional Attempt 2 with b = 0 and p = 1
+Time: 0.619753
+
+One-Dimensional Attempt 3 with b = 0 and p = 1
+Time: 0.619458
+
+One-Dimensional Attempt 4 with b = 0 and p = 1
+Time: 0.619604
+
+One-Dimensional Attempt 5 with b = 0 and p = 1
+Time: 0.619990
+
+One-Dimensional Attempt 6 with b = 0 and p = 1
+Time: 0.619666
+
+One-Dimensional Attempt 7 with b = 0 and p = 1
+Time: 0.619761
+
+One-Dimensional Attempt 8 with b = 0 and p = 1
+Time: 0.619709
+
+One-Dimensional Attempt 9 with b = 0 and p = 1
+Time: 0.619636
+
+One-Dimensional Attempt 10 with b = 0 and p = 1
+Time: 0.619807
+
+One-Dimensional Attempt 11 with b = 0 and p = 1
+Time: 0.619531
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 2
+Time: 0.311030
+
+One-Dimensional Attempt 2 with b = 0 and p = 2
+Time: 0.310168
+
+One-Dimensional Attempt 3 with b = 0 and p = 2
+Time: 0.315077
+
+One-Dimensional Attempt 4 with b = 0 and p = 2
+Time: 0.310656
+
+One-Dimensional Attempt 5 with b = 0 and p = 2
+Time: 0.310590
+
+One-Dimensional Attempt 6 with b = 0 and p = 2
+Time: 0.310699
+
+One-Dimensional Attempt 7 with b = 0 and p = 2
+Time: 0.310622
+
+One-Dimensional Attempt 8 with b = 0 and p = 2
+Time: 0.310551
+
+One-Dimensional Attempt 9 with b = 0 and p = 2
+Time: 0.314093
+
+One-Dimensional Attempt 10 with b = 0 and p = 2
+Time: 0.310629
+
+One-Dimensional Attempt 11 with b = 0 and p = 2
+Time: 0.310453
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 4
+Time: 0.152051
+
+One-Dimensional Attempt 2 with b = 0 and p = 4
+Time: 0.151948
+
+One-Dimensional Attempt 3 with b = 0 and p = 4
+Time: 0.151842
+
+One-Dimensional Attempt 4 with b = 0 and p = 4
+Time: 0.151848
+
+One-Dimensional Attempt 5 with b = 0 and p = 4
+Time: 0.151851
+
+One-Dimensional Attempt 6 with b = 0 and p = 4
+Time: 0.154994
+
+One-Dimensional Attempt 7 with b = 0 and p = 4
+Time: 0.151959
+
+One-Dimensional Attempt 8 with b = 0 and p = 4
+Time: 0.151978
+
+One-Dimensional Attempt 9 with b = 0 and p = 4
+Time: 0.151968
+
+One-Dimensional Attempt 10 with b = 0 and p = 4
+Time: 0.151968
+
+One-Dimensional Attempt 11 with b = 0 and p = 4
+Time: 0.151958
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 8
+Time: 0.076226
+
+One-Dimensional Attempt 2 with b = 0 and p = 8
+Time: 0.076169
+
+One-Dimensional Attempt 3 with b = 0 and p = 8
+Time: 0.076131
+
+One-Dimensional Attempt 4 with b = 0 and p = 8
+Time: 0.076128
+
+One-Dimensional Attempt 5 with b = 0 and p = 8
+Time: 0.076161
+
+One-Dimensional Attempt 6 with b = 0 and p = 8
+Time: 0.076136
+
+One-Dimensional Attempt 7 with b = 0 and p = 8
+Time: 0.076159
+
+One-Dimensional Attempt 8 with b = 0 and p = 8
+Time: 0.076136
+
+One-Dimensional Attempt 9 with b = 0 and p = 8
+Time: 0.076156
+
+One-Dimensional Attempt 10 with b = 0 and p = 8
+Time: 0.076127
+
+One-Dimensional Attempt 11 with b = 0 and p = 8
+Time: 0.076150
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 12
+Time: 0.052751
+
+One-Dimensional Attempt 2 with b = 0 and p = 12
+Time: 0.052742
+
+One-Dimensional Attempt 3 with b = 0 and p = 12
+Time: 0.052768
+
+One-Dimensional Attempt 4 with b = 0 and p = 12
+Time: 0.052765
+
+One-Dimensional Attempt 5 with b = 0 and p = 12
+Time: 0.052749
+
+One-Dimensional Attempt 6 with b = 0 and p = 12
+Time: 0.052758
+
+One-Dimensional Attempt 7 with b = 0 and p = 12
+Time: 0.052753
+
+One-Dimensional Attempt 8 with b = 0 and p = 12
+Time: 0.052764
+
+One-Dimensional Attempt 9 with b = 0 and p = 12
+Time: 0.052763
+
+One-Dimensional Attempt 10 with b = 0 and p = 12
+Time: 0.052748
+
+One-Dimensional Attempt 11 with b = 0 and p = 12
+Time: 0.052759
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 18
+Time: 0.042729
+
+One-Dimensional Attempt 2 with b = 0 and p = 18
+Time: 0.042702
+
+One-Dimensional Attempt 3 with b = 0 and p = 18
+Time: 0.042705
+
+One-Dimensional Attempt 4 with b = 0 and p = 18
+Time: 0.042710
+
+One-Dimensional Attempt 5 with b = 0 and p = 18
+Time: 0.042698
+
+One-Dimensional Attempt 6 with b = 0 and p = 18
+Time: 0.042715
+
+One-Dimensional Attempt 7 with b = 0 and p = 18
+Time: 0.042708
+
+One-Dimensional Attempt 8 with b = 0 and p = 18
+Time: 0.042707
+
+One-Dimensional Attempt 9 with b = 0 and p = 18
+Time: 0.042713
+
+One-Dimensional Attempt 10 with b = 0 and p = 18
+Time: 0.042702
+
+One-Dimensional Attempt 11 with b = 0 and p = 18
+Time: 0.042705
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 36
+Time: 0.026106
+
+One-Dimensional Attempt 2 with b = 0 and p = 36
+Time: 0.026101
+
+One-Dimensional Attempt 3 with b = 0 and p = 36
+Time: 0.026096
+
+One-Dimensional Attempt 4 with b = 0 and p = 36
+Time: 0.026094
+
+One-Dimensional Attempt 5 with b = 0 and p = 36
+Time: 0.026092
+
+One-Dimensional Attempt 6 with b = 0 and p = 36
+Time: 0.026087
+
+One-Dimensional Attempt 7 with b = 0 and p = 36
+Time: 0.026078
+
+One-Dimensional Attempt 8 with b = 0 and p = 36
+Time: 0.026077
+
+One-Dimensional Attempt 9 with b = 0 and p = 36
+Time: 0.026108
+
+One-Dimensional Attempt 10 with b = 0 and p = 36
+Time: 0.026089
+
+One-Dimensional Attempt 11 with b = 0 and p = 36
+Time: 0.026092
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 1
+Time: 0.628728
+
+One-Dimensional Attempt 2 with b = 64 and p = 1
+Time: 0.628730
+
+One-Dimensional Attempt 3 with b = 64 and p = 1
+Time: 0.628550
+
+One-Dimensional Attempt 4 with b = 64 and p = 1
+Time: 0.628466
+
+One-Dimensional Attempt 5 with b = 64 and p = 1
+Time: 0.628656
+
+One-Dimensional Attempt 6 with b = 64 and p = 1
+Time: 0.628590
+
+One-Dimensional Attempt 7 with b = 64 and p = 1
+Time: 0.628777
+
+One-Dimensional Attempt 8 with b = 64 and p = 1
+Time: 0.628608
+
+One-Dimensional Attempt 9 with b = 64 and p = 1
+Time: 0.628900
+
+One-Dimensional Attempt 10 with b = 64 and p = 1
+Time: 0.628650
+
+One-Dimensional Attempt 11 with b = 64 and p = 1
+Time: 0.628740
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 2
+Time: 0.315197
+
+One-Dimensional Attempt 2 with b = 64 and p = 2
+Time: 0.315628
+
+One-Dimensional Attempt 3 with b = 64 and p = 2
+Time: 0.318656
+
+One-Dimensional Attempt 4 with b = 64 and p = 2
+Time: 0.315245
+
+One-Dimensional Attempt 5 with b = 64 and p = 2
+Time: 0.315170
+
+One-Dimensional Attempt 6 with b = 64 and p = 2
+Time: 0.315152
+
+One-Dimensional Attempt 7 with b = 64 and p = 2
+Time: 0.315104
+
+One-Dimensional Attempt 8 with b = 64 and p = 2
+Time: 0.315142
+
+One-Dimensional Attempt 9 with b = 64 and p = 2
+Time: 0.316038
+
+One-Dimensional Attempt 10 with b = 64 and p = 2
+Time: 0.315121
+
+One-Dimensional Attempt 11 with b = 64 and p = 2
+Time: 0.315137
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 4
+Time: 0.158080
+
+One-Dimensional Attempt 2 with b = 64 and p = 4
+Time: 0.158073
+
+One-Dimensional Attempt 3 with b = 64 and p = 4
+Time: 0.158107
+
+One-Dimensional Attempt 4 with b = 64 and p = 4
+Time: 0.158015
+
+One-Dimensional Attempt 5 with b = 64 and p = 4
+Time: 0.158060
+
+One-Dimensional Attempt 6 with b = 64 and p = 4
+Time: 0.160031
+
+One-Dimensional Attempt 7 with b = 64 and p = 4
+Time: 0.158127
+
+One-Dimensional Attempt 8 with b = 64 and p = 4
+Time: 0.158071
+
+One-Dimensional Attempt 9 with b = 64 and p = 4
+Time: 0.158081
+
+One-Dimensional Attempt 10 with b = 64 and p = 4
+Time: 0.158121
+
+One-Dimensional Attempt 11 with b = 64 and p = 4
+Time: 0.158090
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 8
+Time: 0.078705
+
+One-Dimensional Attempt 2 with b = 64 and p = 8
+Time: 0.078703
+
+One-Dimensional Attempt 3 with b = 64 and p = 8
+Time: 0.078686
+
+One-Dimensional Attempt 4 with b = 64 and p = 8
+Time: 0.078698
+
+One-Dimensional Attempt 5 with b = 64 and p = 8
+Time: 0.078691
+
+One-Dimensional Attempt 6 with b = 64 and p = 8
+Time: 0.078699
+
+One-Dimensional Attempt 7 with b = 64 and p = 8
+Time: 0.078715
+
+One-Dimensional Attempt 8 with b = 64 and p = 8
+Time: 0.078703
+
+One-Dimensional Attempt 9 with b = 64 and p = 8
+Time: 0.078715
+
+One-Dimensional Attempt 10 with b = 64 and p = 8
+Time: 0.078696
+
+One-Dimensional Attempt 11 with b = 64 and p = 8
+Time: 0.078708
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 12
+Time: 0.054863
+
+One-Dimensional Attempt 2 with b = 64 and p = 12
+Time: 0.054863
+
+One-Dimensional Attempt 3 with b = 64 and p = 12
+Time: 0.054883
+
+One-Dimensional Attempt 4 with b = 64 and p = 12
+Time: 0.054856
+
+One-Dimensional Attempt 5 with b = 64 and p = 12
+Time: 0.054865
+
+One-Dimensional Attempt 6 with b = 64 and p = 12
+Time: 0.054878
+
+One-Dimensional Attempt 7 with b = 64 and p = 12
+Time: 0.054865
+
+One-Dimensional Attempt 8 with b = 64 and p = 12
+Time: 0.054858
+
+One-Dimensional Attempt 9 with b = 64 and p = 12
+Time: 0.054853
+
+One-Dimensional Attempt 10 with b = 64 and p = 12
+Time: 0.054872
+
+One-Dimensional Attempt 11 with b = 64 and p = 12
+Time: 0.054855
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 18
+Time: 0.044283
+
+One-Dimensional Attempt 2 with b = 64 and p = 18
+Time: 0.044287
+
+One-Dimensional Attempt 3 with b = 64 and p = 18
+Time: 0.044268
+
+One-Dimensional Attempt 4 with b = 64 and p = 18
+Time: 0.044276
+
+One-Dimensional Attempt 5 with b = 64 and p = 18
+Time: 0.044255
+
+One-Dimensional Attempt 6 with b = 64 and p = 18
+Time: 0.044270
+
+One-Dimensional Attempt 7 with b = 64 and p = 18
+Time: 0.044268
+
+One-Dimensional Attempt 8 with b = 64 and p = 18
+Time: 0.044253
+
+One-Dimensional Attempt 9 with b = 64 and p = 18
+Time: 0.044269
+
+One-Dimensional Attempt 10 with b = 64 and p = 18
+Time: 0.044278
+
+One-Dimensional Attempt 11 with b = 64 and p = 18
+Time: 0.044271
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 36
+Time: 0.027187
+
+One-Dimensional Attempt 2 with b = 64 and p = 36
+Time: 0.027168
+
+One-Dimensional Attempt 3 with b = 64 and p = 36
+Time: 0.027177
+
+One-Dimensional Attempt 4 with b = 64 and p = 36
+Time: 0.027208
+
+One-Dimensional Attempt 5 with b = 64 and p = 36
+Time: 0.027164
+
+One-Dimensional Attempt 6 with b = 64 and p = 36
+Time: 0.027166
+
+One-Dimensional Attempt 7 with b = 64 and p = 36
+Time: 0.027163
+
+One-Dimensional Attempt 8 with b = 64 and p = 36
+Time: 0.027164
+
+One-Dimensional Attempt 9 with b = 64 and p = 36
+Time: 0.027160
+
+One-Dimensional Attempt 10 with b = 64 and p = 36
+Time: 0.027166
+
+One-Dimensional Attempt 11 with b = 64 and p = 36
+Time: 0.027168
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 1
+Time: 7.055209
+
+One-Dimensional Attempt 2 with b = 0 and p = 1
+Time: 7.029868
+
+One-Dimensional Attempt 3 with b = 0 and p = 1
+Time: 7.045555
+
+One-Dimensional Attempt 4 with b = 0 and p = 1
+Time: 7.041578
+
+One-Dimensional Attempt 5 with b = 0 and p = 1
+Time: 7.041786
+
+One-Dimensional Attempt 6 with b = 0 and p = 1
+Time: 7.043351
+
+One-Dimensional Attempt 7 with b = 0 and p = 1
+Time: 7.035906
+
+One-Dimensional Attempt 8 with b = 0 and p = 1
+Time: 6.980537
+
+One-Dimensional Attempt 9 with b = 0 and p = 1
+Time: 6.975754
+
+One-Dimensional Attempt 10 with b = 0 and p = 1
+Time: 6.987934
+
+One-Dimensional Attempt 11 with b = 0 and p = 1
+Time: 6.989457
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 2
+Time: 3.923939
+
+One-Dimensional Attempt 2 with b = 0 and p = 2
+Time: 4.112016
+
+One-Dimensional Attempt 3 with b = 0 and p = 2
+Time: 4.129493
+
+One-Dimensional Attempt 4 with b = 0 and p = 2
+Time: 4.116738
+
+One-Dimensional Attempt 5 with b = 0 and p = 2
+Time: 4.114816
+
+One-Dimensional Attempt 6 with b = 0 and p = 2
+Time: 4.106980
+
+One-Dimensional Attempt 7 with b = 0 and p = 2
+Time: 4.114389
+
+One-Dimensional Attempt 8 with b = 0 and p = 2
+Time: 4.013881
+
+One-Dimensional Attempt 9 with b = 0 and p = 2
+Time: 4.002233
+
+One-Dimensional Attempt 10 with b = 0 and p = 2
+Time: 4.002268
+
+One-Dimensional Attempt 11 with b = 0 and p = 2
+Time: 4.001866
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 4
+Time: 1.994082
+
+One-Dimensional Attempt 2 with b = 0 and p = 4
+Time: 1.943413
+
+One-Dimensional Attempt 3 with b = 0 and p = 4
+Time: 1.949403
+
+One-Dimensional Attempt 4 with b = 0 and p = 4
+Time: 2.010393
+
+One-Dimensional Attempt 5 with b = 0 and p = 4
+Time: 2.012188
+
+One-Dimensional Attempt 6 with b = 0 and p = 4
+Time: 2.019437
+
+One-Dimensional Attempt 7 with b = 0 and p = 4
+Time: 2.013069
+
+One-Dimensional Attempt 8 with b = 0 and p = 4
+Time: 2.000605
+
+One-Dimensional Attempt 9 with b = 0 and p = 4
+Time: 2.012470
+
+One-Dimensional Attempt 10 with b = 0 and p = 4
+Time: 2.009039
+
+One-Dimensional Attempt 11 with b = 0 and p = 4
+Time: 2.017729
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 8
+Time: 1.132296
+
+One-Dimensional Attempt 2 with b = 0 and p = 8
+Time: 1.133416
+
+One-Dimensional Attempt 3 with b = 0 and p = 8
+Time: 1.134209
+
+One-Dimensional Attempt 4 with b = 0 and p = 8
+Time: 1.132833
+
+One-Dimensional Attempt 5 with b = 0 and p = 8
+Time: 1.132782
+
+One-Dimensional Attempt 6 with b = 0 and p = 8
+Time: 1.109483
+
+One-Dimensional Attempt 7 with b = 0 and p = 8
+Time: 1.074738
+
+One-Dimensional Attempt 8 with b = 0 and p = 8
+Time: 1.075622
+
+One-Dimensional Attempt 9 with b = 0 and p = 8
+Time: 1.074166
+
+One-Dimensional Attempt 10 with b = 0 and p = 8
+Time: 1.075564
+
+One-Dimensional Attempt 11 with b = 0 and p = 8
+Time: 1.071215
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 12
+Time: 0.752051
+
+One-Dimensional Attempt 2 with b = 0 and p = 12
+Time: 0.744776
+
+One-Dimensional Attempt 3 with b = 0 and p = 12
+Time: 0.750704
+
+One-Dimensional Attempt 4 with b = 0 and p = 12
+Time: 0.752362
+
+One-Dimensional Attempt 5 with b = 0 and p = 12
+Time: 0.758870
+
+One-Dimensional Attempt 6 with b = 0 and p = 12
+Time: 0.760757
+
+One-Dimensional Attempt 7 with b = 0 and p = 12
+Time: 0.761575
+
+One-Dimensional Attempt 8 with b = 0 and p = 12
+Time: 0.757565
+
+One-Dimensional Attempt 9 with b = 0 and p = 12
+Time: 0.756309
+
+One-Dimensional Attempt 10 with b = 0 and p = 12
+Time: 0.750554
+
+One-Dimensional Attempt 11 with b = 0 and p = 12
+Time: 0.758519
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 18
+Time: 0.521359
+
+One-Dimensional Attempt 2 with b = 0 and p = 18
+Time: 0.537280
+
+One-Dimensional Attempt 3 with b = 0 and p = 18
+Time: 0.537422
+
+One-Dimensional Attempt 4 with b = 0 and p = 18
+Time: 0.538240
+
+One-Dimensional Attempt 5 with b = 0 and p = 18
+Time: 0.542732
+
+One-Dimensional Attempt 6 with b = 0 and p = 18
+Time: 0.543307
+
+One-Dimensional Attempt 7 with b = 0 and p = 18
+Time: 0.541634
+
+One-Dimensional Attempt 8 with b = 0 and p = 18
+Time: 0.539959
+
+One-Dimensional Attempt 9 with b = 0 and p = 18
+Time: 0.540040
+
+One-Dimensional Attempt 10 with b = 0 and p = 18
+Time: 0.539772
+
+One-Dimensional Attempt 11 with b = 0 and p = 18
+Time: 0.540366
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 0 and p = 36
+Time: 0.375870
+
+One-Dimensional Attempt 2 with b = 0 and p = 36
+Time: 0.382408
+
+One-Dimensional Attempt 3 with b = 0 and p = 36
+Time: 0.374785
+
+One-Dimensional Attempt 4 with b = 0 and p = 36
+Time: 0.372680
+
+One-Dimensional Attempt 5 with b = 0 and p = 36
+Time: 0.374907
+
+One-Dimensional Attempt 6 with b = 0 and p = 36
+Time: 0.372692
+
+One-Dimensional Attempt 7 with b = 0 and p = 36
+Time: 0.376096
+
+One-Dimensional Attempt 8 with b = 0 and p = 36
+Time: 0.371250
+
+One-Dimensional Attempt 9 with b = 0 and p = 36
+Time: 0.370868
+
+One-Dimensional Attempt 10 with b = 0 and p = 36
+Time: 0.370789
+
+One-Dimensional Attempt 11 with b = 0 and p = 36
+Time: 0.372380
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 1
+Time: 5.172674
+
+One-Dimensional Attempt 2 with b = 64 and p = 1
+Time: 5.173044
+
+One-Dimensional Attempt 3 with b = 64 and p = 1
+Time: 5.172210
+
+One-Dimensional Attempt 4 with b = 64 and p = 1
+Time: 5.172988
+
+One-Dimensional Attempt 5 with b = 64 and p = 1
+Time: 5.165612
+
+One-Dimensional Attempt 6 with b = 64 and p = 1
+Time: 5.166283
+
+One-Dimensional Attempt 7 with b = 64 and p = 1
+Time: 5.164406
+
+One-Dimensional Attempt 8 with b = 64 and p = 1
+Time: 5.165171
+
+One-Dimensional Attempt 9 with b = 64 and p = 1
+Time: 5.162625
+
+One-Dimensional Attempt 10 with b = 64 and p = 1
+Time: 5.158265
+
+One-Dimensional Attempt 11 with b = 64 and p = 1
+Time: 5.157590
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 2
+Time: 2.584479
+
+One-Dimensional Attempt 2 with b = 64 and p = 2
+Time: 2.580446
+
+One-Dimensional Attempt 3 with b = 64 and p = 2
+Time: 2.581847
+
+One-Dimensional Attempt 4 with b = 64 and p = 2
+Time: 2.581738
+
+One-Dimensional Attempt 5 with b = 64 and p = 2
+Time: 2.580676
+
+One-Dimensional Attempt 6 with b = 64 and p = 2
+Time: 2.580503
+
+One-Dimensional Attempt 7 with b = 64 and p = 2
+Time: 2.581911
+
+One-Dimensional Attempt 8 with b = 64 and p = 2
+Time: 2.583083
+
+One-Dimensional Attempt 9 with b = 64 and p = 2
+Time: 2.580404
+
+One-Dimensional Attempt 10 with b = 64 and p = 2
+Time: 2.580710
+
+One-Dimensional Attempt 11 with b = 64 and p = 2
+Time: 2.580772
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 4
+Time: 1.288764
+
+One-Dimensional Attempt 2 with b = 64 and p = 4
+Time: 1.290707
+
+One-Dimensional Attempt 3 with b = 64 and p = 4
+Time: 1.288730
+
+One-Dimensional Attempt 4 with b = 64 and p = 4
+Time: 1.294929
+
+One-Dimensional Attempt 5 with b = 64 and p = 4
+Time: 1.289768
+
+One-Dimensional Attempt 6 with b = 64 and p = 4
+Time: 1.289979
+
+One-Dimensional Attempt 7 with b = 64 and p = 4
+Time: 1.290022
+
+One-Dimensional Attempt 8 with b = 64 and p = 4
+Time: 1.289391
+
+One-Dimensional Attempt 9 with b = 64 and p = 4
+Time: 1.290129
+
+One-Dimensional Attempt 10 with b = 64 and p = 4
+Time: 1.289528
+
+One-Dimensional Attempt 11 with b = 64 and p = 4
+Time: 1.289622
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 8
+Time: 0.645876
+
+One-Dimensional Attempt 2 with b = 64 and p = 8
+Time: 0.641505
+
+One-Dimensional Attempt 3 with b = 64 and p = 8
+Time: 0.641507
+
+One-Dimensional Attempt 4 with b = 64 and p = 8
+Time: 0.643135
+
+One-Dimensional Attempt 5 with b = 64 and p = 8
+Time: 0.641849
+
+One-Dimensional Attempt 6 with b = 64 and p = 8
+Time: 0.641823
+
+One-Dimensional Attempt 7 with b = 64 and p = 8
+Time: 0.641723
+
+One-Dimensional Attempt 8 with b = 64 and p = 8
+Time: 0.641839
+
+One-Dimensional Attempt 9 with b = 64 and p = 8
+Time: 0.642366
+
+One-Dimensional Attempt 10 with b = 64 and p = 8
+Time: 0.642149
+
+One-Dimensional Attempt 11 with b = 64 and p = 8
+Time: 0.641991
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 12
+Time: 0.444828
+
+One-Dimensional Attempt 2 with b = 64 and p = 12
+Time: 0.451605
+
+One-Dimensional Attempt 3 with b = 64 and p = 12
+Time: 0.446754
+
+One-Dimensional Attempt 4 with b = 64 and p = 12
+Time: 0.446741
+
+One-Dimensional Attempt 5 with b = 64 and p = 12
+Time: 0.446753
+
+One-Dimensional Attempt 6 with b = 64 and p = 12
+Time: 0.447955
+
+One-Dimensional Attempt 7 with b = 64 and p = 12
+Time: 0.446946
+
+One-Dimensional Attempt 8 with b = 64 and p = 12
+Time: 0.446896
+
+One-Dimensional Attempt 9 with b = 64 and p = 12
+Time: 0.446887
+
+One-Dimensional Attempt 10 with b = 64 and p = 12
+Time: 0.446894
+
+One-Dimensional Attempt 11 with b = 64 and p = 12
+Time: 0.446890
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 18
+Time: 0.321128
+
+One-Dimensional Attempt 2 with b = 64 and p = 18
+Time: 0.320926
+
+One-Dimensional Attempt 3 with b = 64 and p = 18
+Time: 0.325467
+
+One-Dimensional Attempt 4 with b = 64 and p = 18
+Time: 0.320612
+
+One-Dimensional Attempt 5 with b = 64 and p = 18
+Time: 0.320573
+
+One-Dimensional Attempt 6 with b = 64 and p = 18
+Time: 0.320495
+
+One-Dimensional Attempt 7 with b = 64 and p = 18
+Time: 0.320604
+
+One-Dimensional Attempt 8 with b = 64 and p = 18
+Time: 0.320609
+
+One-Dimensional Attempt 9 with b = 64 and p = 18
+Time: 0.322205
+
+One-Dimensional Attempt 10 with b = 64 and p = 18
+Time: 0.320365
+
+One-Dimensional Attempt 11 with b = 64 and p = 18
+Time: 0.320433
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+One-Dimensional Attempt 1 with b = 64 and p = 36
+Time: 0.228878
+
+One-Dimensional Attempt 2 with b = 64 and p = 36
+Time: 0.229056
+
+One-Dimensional Attempt 3 with b = 64 and p = 36
+Time: 0.229265
+
+One-Dimensional Attempt 4 with b = 64 and p = 36
+Time: 0.230909
+
+One-Dimensional Attempt 5 with b = 64 and p = 36
+Time: 0.224282
+
+One-Dimensional Attempt 6 with b = 64 and p = 36
+Time: 0.224257
+
+One-Dimensional Attempt 7 with b = 64 and p = 36
+Time: 0.224112
+
+One-Dimensional Attempt 8 with b = 64 and p = 36
+Time: 0.224019
+
+One-Dimensional Attempt 9 with b = 64 and p = 36
+Time: 0.224101
+
+One-Dimensional Attempt 10 with b = 64 and p = 36
+Time: 0.224057
+
+One-Dimensional Attempt 11 with b = 64 and p = 36
+Time: 0.224192
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 1, pc = 2
+Time: 0.318349
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 1, pc = 2
+Time: 0.318327
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 1, pc = 2
+Time: 0.319362
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 1, pc = 2
+Time: 0.318721
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 1, pc = 2
+Time: 0.317924
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 1, pc = 2
+Time: 0.317841
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 1, pc = 2
+Time: 0.317850
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 1, pc = 2
+Time: 0.317812
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 1, pc = 2
+Time: 0.317689
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 1, pc = 2
+Time: 0.317781
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 1, pc = 2
+Time: 0.317681
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 2
+Time: 0.159032
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 2
+Time: 0.158835
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 2
+Time: 0.158861
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 2
+Time: 0.158804
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 2
+Time: 0.158884
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 2
+Time: 0.162146
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 2
+Time: 0.159293
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 2
+Time: 0.158923
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 2
+Time: 0.158741
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 2
+Time: 0.158703
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 2
+Time: 0.158863
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 4
+Time: 0.082222
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 4
+Time: 0.082090
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 4
+Time: 0.082075
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 4
+Time: 0.082088
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 4
+Time: 0.082087
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 4
+Time: 0.082104
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 4
+Time: 0.082074
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 4
+Time: 0.082085
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 4
+Time: 0.082061
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 4
+Time: 0.082107
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 4
+Time: 0.082068
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 4
+Time: 0.054807
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 4
+Time: 0.054755
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 4
+Time: 0.054746
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 4
+Time: 0.054819
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 4
+Time: 0.054750
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 4
+Time: 0.054773
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 4
+Time: 0.054805
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 4
+Time: 0.054724
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 4
+Time: 0.054714
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 4
+Time: 0.054697
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 4
+Time: 0.054769
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 6
+Time: 0.040461
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 6
+Time: 0.040292
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 6
+Time: 0.040505
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 6
+Time: 0.040732
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 6
+Time: 0.040645
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 6
+Time: 0.040737
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 6
+Time: 0.040442
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 6
+Time: 0.040528
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 6
+Time: 0.040461
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 6
+Time: 0.040825
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 6
+Time: 0.040382
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 6, pc = 6
+Time: 0.020935
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 6, pc = 6
+Time: 0.020988
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 6, pc = 6
+Time: 0.020825
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 6, pc = 6
+Time: 0.020741
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 6, pc = 6
+Time: 0.020839
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 6, pc = 6
+Time: 0.020260
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 6, pc = 6
+Time: 0.021274
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 6, pc = 6
+Time: 0.020917
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 6, pc = 6
+Time: 0.020672
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 6, pc = 6
+Time: 0.020594
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 6, pc = 6
+Time: 0.020853
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 1, pc = 2
+Time: 2.605706
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 1, pc = 2
+Time: 2.609599
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 1, pc = 2
+Time: 2.606007
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 1, pc = 2
+Time: 2.606892
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 1, pc = 2
+Time: 2.604114
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 1, pc = 2
+Time: 2.605809
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 1, pc = 2
+Time: 2.603660
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 1, pc = 2
+Time: 2.602998
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 1, pc = 2
+Time: 2.600113
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 1, pc = 2
+Time: 2.597788
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 1, pc = 2
+Time: 2.597308
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 2
+Time: 1.293656
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 2
+Time: 1.296303
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 2
+Time: 1.294062
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 2
+Time: 1.293418
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 2
+Time: 1.294208
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 2
+Time: 1.296848
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 2
+Time: 1.294236
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 2
+Time: 1.293566
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 2
+Time: 1.294654
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 2
+Time: 1.294340
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 2
+Time: 1.293381
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 2, pc = 4
+Time: 0.653980
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 2, pc = 4
+Time: 0.653355
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 2, pc = 4
+Time: 0.653125
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 2, pc = 4
+Time: 0.653422
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 2, pc = 4
+Time: 0.653186
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 2, pc = 4
+Time: 0.652604
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 2, pc = 4
+Time: 0.653138
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 2, pc = 4
+Time: 0.652961
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 2, pc = 4
+Time: 0.652856
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 2, pc = 4
+Time: 0.652852
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 2, pc = 4
+Time: 0.652939
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 4
+Time: 0.433570
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 4
+Time: 0.433935
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 4
+Time: 0.433620
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 4
+Time: 0.433720
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 4
+Time: 0.433630
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 4
+Time: 0.433335
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 4
+Time: 0.433207
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 4
+Time: 0.434075
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 4
+Time: 0.433092
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 4
+Time: 0.432980
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 4
+Time: 0.433446
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 3, pc = 6
+Time: 0.314883
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 3, pc = 6
+Time: 0.316538
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 3, pc = 6
+Time: 0.317257
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 3, pc = 6
+Time: 0.314358
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 3, pc = 6
+Time: 0.311560
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 3, pc = 6
+Time: 0.309724
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 3, pc = 6
+Time: 0.311094
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 3, pc = 6
+Time: 0.310646
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 3, pc = 6
+Time: 0.315956
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 3, pc = 6
+Time: 0.313178
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 3, pc = 6
+Time: 0.312059
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 6, pc = 6
+Time: 0.157057
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 6, pc = 6
+Time: 0.159624
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 6, pc = 6
+Time: 0.162294
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 6, pc = 6
+Time: 0.157909
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 6, pc = 6
+Time: 0.156652
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 6, pc = 6
+Time: 0.164725
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 6, pc = 6
+Time: 0.158879
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 6, pc = 6
+Time: 0.158982
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 6, pc = 6
+Time: 0.156767
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 6, pc = 6
+Time: 0.157609
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 6, pc = 6
+Time: 0.162539
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 1, pc = 36
+Time: 0.258445
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 1, pc = 36
+Time: 0.259813
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 1, pc = 36
+Time: 0.272271
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 1, pc = 36
+Time: 0.260359
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 1, pc = 36
+Time: 0.253465
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 1, pc = 36
+Time: 0.254253
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 1, pc = 36
+Time: 0.255725
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 1, pc = 36
+Time: 0.261350
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 1, pc = 36
+Time: 0.256823
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 1, pc = 36
+Time: 0.254697
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 1, pc = 36
+Time: 0.257106
+
+The arrays made by this style are correct
+
+The arrays made by this style are correct
+
+Two-Dimensional Attempt 1 with b = 64 and pr = 6, pc = 6
+Time: 0.027503
+
+Two-Dimensional Attempt 2 with b = 64 and pr = 6, pc = 6
+Time: 0.027191
+
+Two-Dimensional Attempt 3 with b = 64 and pr = 6, pc = 6
+Time: 0.027480
+
+Two-Dimensional Attempt 4 with b = 64 and pr = 6, pc = 6
+Time: 0.027592
+
+Two-Dimensional Attempt 5 with b = 64 and pr = 6, pc = 6
+Time: 0.027416
+
+Two-Dimensional Attempt 6 with b = 64 and pr = 6, pc = 6
+Time: 0.027570
+
+Two-Dimensional Attempt 7 with b = 64 and pr = 6, pc = 6
+Time: 0.027420
+
+Two-Dimensional Attempt 8 with b = 64 and pr = 6, pc = 6
+Time: 0.027498
+
+Two-Dimensional Attempt 9 with b = 64 and pr = 6, pc = 6
+Time: 0.027709
+
+Two-Dimensional Attempt 10 with b = 64 and pr = 6, pc = 6
+Time: 0.027853
+
+Two-Dimensional Attempt 11 with b = 64 and pr = 6, pc = 6
+Time: 0.027883
+
+The arrays made by this style are correct
+Traceback (most recent call last):
+  File "/users/dlowrey/Parall-Programming-Assignments/Assignment2/a2_dlowrey/scripts/plot.py", line 25, in <module>
+    import matplotlib
+ModuleNotFoundError: No module named 'matplotlib'
+Plotting failed
